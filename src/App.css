@@ -1,0 +1,15 @@
+/* fonts config */
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/assets/fonts/Montserrat/Montserrat-VariableFont_wght.ttf")
+      format("truetype"),
+    url("/assets/fonts/Montserrat/Montserrat-VariableFont_wght.ttf")
+      format("truetype");
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("/assets/fonts/Poppins-Regular.ttf") format("truetype"),
+    url("/assets/fonts/Poppins-Regular.ttf") format("truetype");
+}
