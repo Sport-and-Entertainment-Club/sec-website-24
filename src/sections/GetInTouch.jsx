@@ -1,0 +1,27 @@
+import React from "react";
+import GradientButton from "../components/layout/GradientButton";
+const GetInTouch = () => {
+  return (
+    <div className="bg-purple w-screen flex flex-col items-center justify-center text-white pb-[34.2px] md:pb-[91px]">
+      <p className="text-[14.71px] md:text-[40px] font-bold font-montserrat">
+        Get in Touch
+      </p>
+      <p className="leading-[12.87px] md:leading-[35px] text-[7.67px] sm:text-[10px] md:text-[16px] lg:text-[20px] w-[60%] pt-[9.19px] md:pt-[25px] pb-[13.24px] md:pb-[36px]">
+        Have any questions or interested in joining our community? Feel free to
+        contact us, and we’ll be happy to assist you.
+      </p>
+      <div className="relative md:h-full bg-white rounded-[15.08px] md:rounded-[25px] grid grid-cols-2 md:grid-cols-[5fr,1fr] pl-[25.74px] md:pl-[70px] w-[70%] md:w-[65%] lg:w-[50%]">
+        <input
+          type="text"
+          placeholder="Enter you Email"
+          className="text-[#1E0F2DAD] bg-transparent border-none outline-none  text-[7.67px] sm:text-[10px] md:text-[16px]"
+        />
+        <div className="flex items-center justify-end">
+          <GradientButton Text={"Submit"} />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default GetInTouch;
