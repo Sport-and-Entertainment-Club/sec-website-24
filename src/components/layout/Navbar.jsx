@@ -4,7 +4,9 @@ import { motion } from "framer-motion";
 const Navbar = () => {
   const [activeLink, setActiveLink] = useState("Home");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const contactUs = () => {};
+  const contactUs = () => {
+    alert("Contact us");
+  };
   const toggleMenu = () => {
     setTimeout(() => {
       setIsMenuOpen((prev) => !prev);
@@ -63,7 +65,13 @@ const Navbar = () => {
               WebkitTextFillColor:
                 activeLink === n.title ? "transparent" : "initial",
             }}>
-            {n.title}
+            <a
+              onClick={() => {
+                setActiveLink(n.title);
+              }}
+              href={`#${n.link}`}>
+              {n.title}
+            </a>
           </p>
         ))}
       </div>
@@ -112,7 +120,7 @@ const Navbar = () => {
                 WebkitTextFillColor:
                   activeLink === n.title ? "transparent" : "initial",
               }}>
-              {n.title}
+              <a href={`#${n.link}`}>{n.title}</a>
             </p>
           ))}
           <GradientButton Text={"Contact us"} OnClick={contactUs} />
