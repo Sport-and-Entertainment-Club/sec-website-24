@@ -95,6 +95,7 @@ const EventsSlider = () => {
     cssEase: "ease-in-out",
     speed: 500,
     afterChange: handleAfterChange,
+    nextArrow: <></>,
   };
 
   return (
