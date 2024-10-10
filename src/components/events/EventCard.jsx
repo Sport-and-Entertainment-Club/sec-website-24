@@ -43,7 +43,7 @@ const EventCard = ({ event }) => {
 
   return (
     <div
-      className="z-0 mx-auto relative w-[175.1px] md:w-[200px] lg:w-[250px] xl:w-[300px] 2xl:w-[343.83px] h-full perspective"
+      className="z-0 mx-auto relative w-[175.1px] md:w-[200px] lg:w-[250px] xl:w-[300px] 2xl:w-[343.83px] h-full perspective my-[20px] md:my-[42px]"
       onMouseEnter={() => setIsFlipped(true)}
       onMouseLeave={() => setIsFlipped(false)}>
       <motion.div
