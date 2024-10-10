@@ -4,18 +4,19 @@ import Slider from "./Slider";
 import { images, images2 } from "../../constants/imagesScroller";
 const Hero = () => {
   return (
-    <div className="mx-auto w-[95%] flex flex-col md:flex-row relative bg-white space-y-8 md:space-y-0">
+    <div className="overflow-x-hidden mx-auto  flex flex-col md:flex-row relative bg-white space-y-8 md:space-y-0">
       <div className=" hidden md:block absolute  top-0 left-0 bg-bg-white w-[77.6%] h-[75%] z-0">
         <div className="absolute -bottom-0 w-full h-28 bg-bg-white clip-triangle rotate-360 translate-y-28 "></div>
       </div>
-      <div className="    basis-1/2 pt-20 px-4 md:px-10 md:pl-16 xl:px-20 xl:pl-28 relative z-10 min-h-full  flex justify-center items-center ">
-        <div className="space-y-6 xl:space-y-10 mb-0 md:mb-20">
-          <h1 className=" text-4xl md:text-5xl xl:text-[56px] font-[800] text-title leading-[50px] md:leading-[70px] ">
+      <div className=" basis-1/2 lg:pt-10 px-4 md:px-10 lg:pl-16 xl:px-20 xl:pl-28 relative z-10 min-h-full  flex justify-center items-center ">
+        <div className="space-y-6 md:space-y-8 xl:space-y-10 mb-0 md:mb-20">
+          <h1 className="font-montserrat text-4xl lg:text-5xl xl:text-[56px] font-[800] text-title leading-[38.4px] md:leading-[45px] lg:leading-[60px] ">
             CAUSE
             <span className=" text-blue-main "> WE GOT </span>
+            <br className="block md:hidden " />
             SKILLS
           </h1>
-          <p className=" text-sm md:text-lg leading-6 md:leading-[30px] tracking-wide md:tracking-[0.07rem]">
+          <p className=" text-[12px] md:text-[16px] lg:text-lg leading-[16px] md:leading-[20px] lg:leading-[30px] tracking-wide md:tracking-[0.07rem]">
             We are a group of students passionate about sports, exploring new
             hobbies, and enjoying entertainment. At SEC, we create the perfect
             community for you to connect, have fun, and recharge! Whether you`re
@@ -23,7 +24,7 @@ const Hero = () => {
             yourself, you`ll find it all at SEC !
           </p>
           <div className=" w-full flex justify-center md:justify-start">
-            <button className=" font-montserrat text-white font-medium px-8 py-1 md:py-2 md:px-10 bg-blue-400 rounded-xl text-base md:text-3xl">
+            <button className=" font-montserrat text-white font-medium px-8 py-5.2 md:py-2 md:px-10 bg-blue-400 rounded-xl text-base lg:text-xl">
               Join us
             </button>
           </div>
@@ -33,7 +34,7 @@ const Hero = () => {
         <ScrolledImages isUp={true} images={images} />
         <ScrolledImages usUp={false} images={images2} />
       </div>
-      <div className="flex flex-col   md:absolute md:bottom-3 md:left-6  ">
+      <div className="mx-auto flex flex-col justify-center items-center  md:absolute md:bottom-3 md:left-6  ">
         <Slider />
         <ContactUs />
       </div>

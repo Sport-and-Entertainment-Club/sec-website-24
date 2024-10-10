@@ -1,7 +1,7 @@
 import HeroAnimation from "./HeroAnimation";
 const Slider = () => {
   return (
-    <div className="  md:hidden flex flex-col justify-center items-center text-2xl ">
+    <div className=" mx-auto w-[107vw] md:hidden">
       <HeroAnimation />
     </div>
   );

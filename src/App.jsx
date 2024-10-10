@@ -5,8 +5,8 @@ import Navbar from "./components/shared/Navbar";
 function App() {
   return (
     <div className="text-title bg-bg-white  min-h-screen w-screen font-poppins ">
-       <Navbar />
-       <Hero />
+      {/* <Navbar /> */}
+      <Hero />
     </div>
   );
 }
