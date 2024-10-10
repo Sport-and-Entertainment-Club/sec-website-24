@@ -4,7 +4,7 @@ import Slider from "./Slider";
 import { images, images2 } from "../../constants/imagesScroller";
 const Hero = () => {
   return (
-    <div className=" flex flex-col md:flex-row relative bg-white space-y-8 md:space-y-0">
+    <div className="mx-auto w-[95%] flex flex-col md:flex-row relative bg-white space-y-8 md:space-y-0">
       <div className=" hidden md:block absolute  top-0 left-0 bg-bg-white w-[77.6%] h-[75%] z-0">
         <div className="absolute -bottom-0 w-full h-28 bg-bg-white clip-triangle rotate-360 translate-y-28 "></div>
       </div>
@@ -28,7 +28,6 @@ const Hero = () => {
             </button>
           </div>
         </div>
-        
       </div>
       <div className="hidden md:flex basis-1/2 overflow-hidden  h-screen  flex-row justify-end  gap-4  pr-4  z-10  ">
         <ScrolledImages isUp={true} images={images} />
