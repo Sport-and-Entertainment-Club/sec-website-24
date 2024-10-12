@@ -42,7 +42,7 @@ function OurActivities() {
     <div className="flex justify-center items-center py-8 z-0 px-8">
       <div className="flex flex-col justify-center items-center lg:w-3/5 sm:w-4/5 w-full -z-0">
         <p className="my-4">Our Activities</p>
-        <div className="relative h-[612px] w-full overflow-hidden">
+        <div className="relative h-[612px] w-full overflow-hidden -z-0">
           {cardData.map((card, index) => (
             <Card
               key={index}
