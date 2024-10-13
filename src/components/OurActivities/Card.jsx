@@ -26,22 +26,25 @@ function Card({
       onMouseEnter={onHover}
       onMouseLeave={onLeave}
     >
-      <div className="flex flex-col items-center h-full">
-        <h3 className="text-xl font-bold mb-2">{title}</h3>
-        <p className="text-center md:text-lg text-sm transition-all duration-700">
+      <div className="flex flex-col items-start h-full">
+        <h3 className="sm:text-3xl text-xl text-start font-bold mb-4">{title}</h3>
+        <p className=" text-start md:text-lg text-sm transition-all duration-700">
           {descriptiontoshow}
           {isHovered &&
           <span className={` mt-2 transition-all duration-300 ease-in-out`}>
             {descriptionwhilehover}
           </span>}
         </p>
+        <div className=" flex items-end justify-end w-full">
         {!shouldHideIcon && (
           <img
             src={icon}
             alt={title}
-            className={` w-48 h-48 mt-auto transition-all duration-300 ease-in-out ${isHovered ? "scale-110" : ""}`}
+            className={` md:w-48 md:h-48 w-28 h-28 mt-auto transition-all duration-300 ease-in-out ${isHovered ? "scale-110" : ""}`}
           />
         )}
+        </div>
+
       </div>
     </div>
   );
