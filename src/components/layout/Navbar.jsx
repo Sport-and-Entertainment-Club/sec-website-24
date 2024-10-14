@@ -38,7 +38,7 @@ const Navbar = () => {
   useEffect(() => {}, [activeLink]);
   return (
     <div
-      className={`flex flex-col md:flex-row items-center md:rounded-[15px] px-[30px] py-[11px] text-purple md:w-[88vw] z-50 fixed top-0 w-screen md:top-7 md:left-1/2 md:-translate-x-1/2 ${
+      className={`z-10 flex flex-col md:flex-row items-center md:rounded-[15px] px-[30px] py-[11px] text-purple md:w-[88vw] fixed top-0 w-screen md:top-7 md:left-1/2 md:-translate-x-1/2 ${
         isMenuOpen
           ? "bg-white md:bg-navbar-white"
           : "bg-[#F2F1FC] md:bg-navbar-white"
@@ -78,7 +78,7 @@ const Navbar = () => {
       <div className="hidden md:flex items-center justify-end">
         <GradientButton Text={"Contact us"} OnClick={contactUs} />
       </div>
-      <div className="flex justify-between md:hidden w-full items-center">
+      <div className="flex justify-between md:hidden w-full items-center ">
         <img src="/assets/images/layout/logo.png" />
         {/* Menu Button for Mobile */}
         <div>

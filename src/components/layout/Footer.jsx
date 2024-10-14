@@ -14,13 +14,13 @@ const Footer = () => {
             entertainment, and tech-driven experiences since 2021
           </p>
           <div className="flex justify-between w-[30%] md:w-[60%] xl:w-[40%] py-[20.14px] md:py-[53px] md:gap-8">
-            <a href="https://www.facebook.com/sec.esi?mibextid=ZbWKwL">
+            <a href="https://www.instagram.com/sec.esi/">
               <img
                 src="assets/images/layout/instagram.svg"
-                className="md:w-[50px]  w-[23.5px]"
+                className="md:w-[50px] w-[23.5px]"
               />
             </a>
-            <a href="https://www.instagram.com/sec.esi/">
+            <a href="https://www.facebook.com/sec.esi?mibextid=ZbWKwL">
               <img
                 src="assets/images/layout/fb.svg"
                 className="md:w-[50px]  w-[23.5px]"
