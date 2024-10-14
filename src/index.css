@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+
+@layer utilities {
+  .clip-triangle {
+    clip-path: polygon(100% 0, 0 0, 100% 100%);
+  }
+}
+
+
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -26,3 +35,11 @@ body {
   box-sizing: border-box;
   /* overflow-x: hidden; */
 }
+
+
+.gradient-text {
+  background: linear-gradient(to bottom, #0FDAFE, #C654FB); /* Gradient colors */
+  -webkit-background-clip: text;
+  color: transparent; /* Text becomes transparent to reveal the gradient */
+}
+
