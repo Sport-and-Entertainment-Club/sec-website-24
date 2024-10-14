@@ -47,8 +47,12 @@ function Card({
           <img
             src={icon}
             alt={title}
-            className={`w-[121.38px] md:w-48 md:h-48 mt-auto transition-all duration-300 ease-in-out ${
-              isHovered ? "scale-110" : ""
+            className={`${
+              index == 2 || index == 4
+                ? "translate-x-[30px]"
+                : "translate-x-[35px]"
+            }  w-[70.38px] md:w-48 md:h-48 mt-auto transition-all duration-300 ease-in-out ${
+              isHovered ? "lg:scale-110" : ""
             }`}
           />
         )}
