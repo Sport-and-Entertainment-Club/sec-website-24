@@ -14,3 +14,27 @@
     url("/assets/fonts/Poppins-Regular.ttf") format("truetype");
 }
 
+/* slider styles */
+.worm-indicator {
+  display: flex;
+  justify-content: center;
+}
+
+.worm-dot {
+  border-radius: 20px;
+  background-color: #ccbafe;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.worm-dot.active {
+  background-color: #9974fc;
+  width: 66px;
+}
+
+.perspective {
+  perspective: 1000px;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
