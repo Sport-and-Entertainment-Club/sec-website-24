@@ -28,6 +28,9 @@ export default {
         "text-desktop": "18px",
         "text-mobile": "12px",
       },
+      screens: {
+        md2: '840px', 
+      },
     },
   },
   plugins: [],

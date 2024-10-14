@@ -1,5 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { SlArrowLeftCircle, SlArrowRightCircle } from "react-icons/sl";
+import { GrLinkNext } from "react-icons/gr";
+import { GrLinkPrevious } from "react-icons/gr";
 import lead from '../assets/President.svg';
 import vice from '../assets/Vice.svg';
 import des1 from '../assets/Des1.svg';
@@ -66,8 +68,8 @@ const OurTeam = () => {
     }, []);
 
     return (
-        <div className='flex flex-col items-center my-8 justify-between sm:flex-row px-10 sm:px-20'>
-            <div className='flex text-purple justify-between gap-12 h-full text-center flex-col w-full sm:text-start sm:w-1/3'>
+        <div className='flex flex-col items-center my-8  sm:flex-row px-10 sm:px-20'>
+            <div className='flex text-purple justify-between gap-6 sm:gap-12 h-full text-center flex-col w-full sm:text-start sm:w-1/3'>
                 <div className='flex flex-col gap-4'>
                     <h1 className="hidden sm:flex sm:text-4xl text-title-mobile sm:font-montserrat sm:font-extrabold">
                         Meet <br /> Our Team
@@ -79,44 +81,32 @@ const OurTeam = () => {
                         Adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. Ut enim ad minim veniam.
                     </p>
                 </div>
-                <div className='flex flex-row justify-center sm:justify-start sm:gap-12 gap-4'>
-                    <SlArrowLeftCircle className='  w-8 sm:w-10 fill-pink cursor-pointer' onClick={handlePrev} />
-                    <SlArrowRightCircle className='w-8 sm:w-10 fill-pink cursor-pointer' onClick={handleNext} />
+                <div className='flex flex-row justify-center items-center sm:justify-start mb-5 sm:gap-12 gap-10'>
+                    <div className=' w-10 h-10 sm:w-10 sm:h-10 flex justify-center items-center rounded-full  border-pink border-[1.5px]  bg-whiterounded-full cursor-pointer' onClick={handlePrev}><GrLinkPrevious className='w-6 sm:w-6 stroke-pink cursor-pointer' /></div>
+                    <div className=' w-10 h-10 sm:w-10 sm:h-10 flex justify-center items-center rounded-full  bg-pink  cursor-pointer' onClick={handleNext}><GrLinkNext className='w-6 sm:w-6 stroke-white cursor-pointer' /></div>
                 </div>
             </div>
 
-            <div className='w-full sm:w-[65%]'>
+            <div className='w-full px-11 items-center  sm:w-[65%]'>
                 <AnimatePresence>
                     <motion.div>
                         <Swiper
                             ref={swiperRef}
                             modules={[Pagination, Navigation, A11y]}
-                            spaceBetween={10}
+                            spaceBetween={30}
                             slidesPerView={1.5}
+                            centeredSlides:true
                             loop
                             speed={1000}
                             breakpoints={{
-                                120: {
-                                    slidesPerView: 1.25,
-                                    centeredSlides: true,
-                                    spaceBetween: 10,
-                                },
 
-                                320: {
-                                    slidesPerView: 1.25,
-                                    centeredSlides: true,
-                                    spaceBetween: 10,
-                                },
+
                                 480: {
                                     slidesPerView: 1.5,
                                     spaceBetween: 5,
                                     centeredSlides: false,
                                 },
-                                768: {
-                                    slidesPerView: 2.5,
-                                    centeredSlides: false,
-                                    spaceBetween: 5,
-                                },
+
                                 1024: {
                                     slidesPerView: 3,
                                     spaceBetween: 5,

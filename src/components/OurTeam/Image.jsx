@@ -29,7 +29,7 @@ const Image = ({ color, role, image, name, active }) => {
           <div className=' absolute left-0  bottom-8 w-16 h-16 bg-purple'>
 
           </div>
-          <div className="absolute h-80  place-content-start justify-start place-self-start bottom-4 lg:-bottom-6 left-12 lg:left-[96px] md:left-[80px] md:-bottom-2 sm:left-[45px] sm:bottom-6  w-full  text-white -rotate-90   ">
+          <div className="absolute h-80 sm:-bottom-8 sm:left-[90px] md:-bottom-6 md:left-[96px] md2:-bottom-2 md2:left-16  lg:-bottom-10 lg:left-[96px] bottom-12 left-6 w-full   text-white -rotate-90   ">
 
             <p className="text-lg font-extrabold text-nowrap ">{role}</p>
           </div>
