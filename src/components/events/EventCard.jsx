@@ -56,7 +56,7 @@ const EventCard = ({ event }) => {
           variants={variants}>
           <img src={event.image} alt={event.title} />
           <div className="flex relative w-full items-center justify-center">
-            <p className="text-[15.28px] md:text-[20px] xl:text-[30px] font-montserrat font-[800] text-purple pt-[15.48px]">
+            <p className="text-[13.28px] md:text-[18px] xl:text-[24px] font-montserrat font-[800] text-purple pt-[15.48px]">
               {event.title}
             </p>
             <img
@@ -74,13 +74,13 @@ const EventCard = ({ event }) => {
           variants={backVariants}
           style={{ position: "absolute", top: 0, left: 0 }}>
           <div className="h-full  flex flex-col items-start justify-start">
-            <p className="leading-[10.42px] md:leading-[20px] xl:leading-[24px] text-[7.5px] xl:text-[16px] lg:text-[14px] md:text-[11px] font-poppins font-[500] text-black  text-start">
+            <p className="leading-[10.42px] md:leading-[20px] xl:leading-[24px] text-[7.5px] xl:text-[14px] lg:text-[12px] md:text-[11px] font-poppins font-[500] text-black  text-start">
               {event.description}
             </p>
           </div>
 
           <div className="z-0 flex relative w-full items-center justify-center">
-            <p className="text-[15.28px] md:text-[20px] xl:text-[30px] font-montserrat font-[800] text-purple pt-[15.48px]">
+            <p className="text-[13.28px] md:text-[18px] xl:text-[24px] font-montserrat font-[800] text-purple pt-[15.48px]">
               {event.title}
             </p>
             <img

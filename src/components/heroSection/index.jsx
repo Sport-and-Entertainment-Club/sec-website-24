@@ -4,7 +4,7 @@ import Slider from "./Slider";
 import { images, images2 } from "../../constants/imagesScroller";
 const Hero = () => {
   return (
-    <div className="overflow-x-hidden mx-auto  flex flex-col md:flex-row relative bg-white space-y-8 md:space-y-0">
+    <div className="z-0  mx-auto  flex flex-col md:flex-row relative bg-white space-y-8 md:space-y-0 mt-[50px] md:mt-0">
       <div className=" hidden md:block absolute  top-0 left-0 bg-bg-white w-[77.6%] h-[75%] z-0">
         <div className="absolute -bottom-0 w-full h-28 bg-bg-white clip-triangle rotate-360 translate-y-28 "></div>
       </div>
@@ -16,15 +16,15 @@ const Hero = () => {
             <br className="block md:hidden " />
             SKILLS
           </h1>
-          <p className=" text-[12px] md:text-[16px] lg:text-lg leading-[16px] md:leading-[20px] lg:leading-[30px] tracking-wide md:tracking-[0.07rem]">
+          <p className=" text-[12px] md:text-[16px] lg:text-lg leading-[17px] md:leading-[20px] lg:leading-[30px] tracking-wide md:tracking-[0.07rem] font-poppins">
             We are a group of students passionate about sports, exploring new
             hobbies, and enjoying entertainment. At SEC, we create the perfect
             community for you to connect, have fun, and recharge! Whether you`re
             looking to network, discover new interests, or simply enjoy
             yourself, you`ll find it all at SEC !
           </p>
-          <div className=" w-full flex justify-center md:justify-start">
-            <button className=" font-montserrat text-white font-medium px-8 py-5.2 md:py-2 md:px-10 bg-blue-400 rounded-xl text-base lg:text-xl">
+          <div className="mt-6 md:mt-0 w-full flex justify-center md:justify-start">
+            <button className=" font-montserrat text-white font-medium px-[29px] py-[7px] md:py-2 md:px-10 bg-blue-400 rounded-xl text-base lg:text-xl">
               Join us
             </button>
           </div>

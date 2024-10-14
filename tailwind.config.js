@@ -8,7 +8,7 @@ export default {
         poppins: ["Poppins", "sans-serif"],
       },
       colors: {
-        "blue-main":"#6D95FC",
+        "blue-main": "#6D95FC",
         "bg-white": "#F2F1FC",
         "blue-400": "#7CA0FC",
         title: "#1E0F2D",
@@ -22,11 +22,11 @@ export default {
         "blue-300": "#8AAAFD",
         "navbar-white": "#FFFFFFE5",
         purple: "#1E0F2D",
-        "blue-ocean":"#0FDAFE",
-        "purple-ocean":"#C654FB"
+        "blue-ocean": "#0FDAFE",
+        "purple-ocean": "#C654FB",
       },
       fontSize: {
-        "title-desktop": "64px",
+        "title-desktop": "56px",
         "title-mobile": "32px",
         "text-desktop": "18px",
         "text-mobile": "12px",
