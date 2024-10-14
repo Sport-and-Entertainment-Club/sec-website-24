@@ -78,7 +78,7 @@ const Navbar = () => {
       <div className="hidden md:flex items-center justify-end">
         <GradientButton Text={"Contact us"} OnClick={contactUs} />
       </div>
-      <div className="flex justify-between md:hidden w-full items-center">
+      <div className="flex justify-between md:hidden w-full items-center ">
         <img src="/assets/images/layout/logo.png" />
         {/* Menu Button for Mobile */}
         <div>
