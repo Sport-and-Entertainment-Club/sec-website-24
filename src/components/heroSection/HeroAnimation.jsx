@@ -57,7 +57,7 @@ const HeroAnimation = () => {
   }, [inControls, outControls]);
 
   return (
-    <div className="  w-[100vw]  justify-center relative items-center flex flex-col z-0 sw:h-[24vw] h-[30vh] sm:h-[50vh] ">
+    <div className="mx-auto overflow-x-none w-[100vw]  justify-center relative items-center flex flex-col z-0 sw:h-[24vw] h-[30vh] sm:h-[50vh] ">
       <div className=" sm:hidden w-full absolute  top-0 flex gap-3  z-1 items-center justify-center">
         {images.slice(0, 3).map((img, index) => (
           <motion.div

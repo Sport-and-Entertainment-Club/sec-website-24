@@ -1,7 +1,7 @@
 import HeroAnimation from "./HeroAnimation";
 const Slider = () => {
   return (
-    <div className=" mx-auto w-[107vw] md:hidden">
+    <div className="md:hidden">
       <HeroAnimation />
     </div>
   );
