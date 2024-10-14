@@ -38,7 +38,7 @@ const Navbar = () => {
   useEffect(() => {}, [activeLink]);
   return (
     <div
-      className={`flex flex-col md:flex-row items-center md:rounded-[15px] px-[30px] py-[11px] text-purple md:w-[88vw]  fixed top-0 w-screen md:top-7 md:left-1/2 md:-translate-x-1/2 ${
+      className={`z-50 flex flex-col md:flex-row items-center md:rounded-[15px] px-[30px] py-[11px] text-purple md:w-[88vw]  fixed top-0 w-screen md:top-7 md:left-1/2 md:-translate-x-1/2 ${
         isMenuOpen
           ? "bg-white md:bg-navbar-white"
           : "bg-[#F2F1FC] md:bg-navbar-white"
