@@ -18,9 +18,9 @@ function App() {
       <Hero />
       <AboutUsPage />
       <Goals />
+      <OurTeam />
       <Events />
       <OurActivities />
-      <OurTeam/>
       <GetInTouch />
       <Footer />
     </div>
