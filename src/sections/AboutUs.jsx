@@ -9,7 +9,7 @@ function AboutUsPage() {
       </h2>
       <div className="flex sm:gap-[20px] md:gap-[40px] flex-col-reverse md:flex-row md:py-[30px] px-[20px] md:px-[5%] lg:px-[10%] sm:flex-row flex-center items-center justify-center">
         <div className="mb-6">
-          <img
+          <img loading="lazy"  
             src={logo}
             alt="SEC Logo"
             className="w-[30vw] sm:w-[15vw] md:w-[40vw] md:h-[30vh]"

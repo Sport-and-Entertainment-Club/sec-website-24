@@ -10,7 +10,7 @@ const Image = ({ color, role, image, name, active }) => {
         style={{
           background: "linear-gradient(rgba(30,15,45,0) 0%, #1E0F2D 100%)",
         }}></div>
-      <img
+      <img loading="lazy"  
         src={image}
         alt={name}
         className="object-cover rounded-xl w-full h-full"

@@ -42,7 +42,7 @@ const ScrolledImages = ({ isUp, images }) => {
         ref={ref}>
         {[...images, ...images, ...images].map((item, index) => {
           return (
-            <img
+            <img loading="lazy"  
               src={item}
               className="   rounded-[5px] lg:rounded-[10px]   "
               key={index}
