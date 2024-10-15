@@ -1,11 +1,10 @@
-import React from "react";
 
 const Footer = () => {
   return (
-    <div className="px-[0] w-screen md:px-[4%] lg:px-[5%] flex flex-col bg-purple text-[7.67px] sm:text-[10px] md:text-[14px] lg:text-[16px] text-white pt-[30px] font-poppins font-[400]">
+    <div className="px-[0] md:w-full md:px-[4%] lg:px-[5%] flex flex-col bg-purple text-[7.67px] sm:text-[10px] md:text-[14px] lg:text-[16px] text-white pt-[30px] font-poppins font-[400]">
       <div className="md:grid md:grid-cols-[1fr,1.5fr] lg:grid-cols-[1.5fr,2.5fr]">
         <div className="flex flex-col items-center">
-          <img loading="lazy"  
+          <img
             src="assets/images/layout/sec-logo-text.svg"
             className="w-[49%] sm:w-[40%] md:w-[80%] lg:w-[60%]"
           />
@@ -16,19 +15,19 @@ const Footer = () => {
           </p>
           <div className="flex justify-between w-[30%] md:w-[60%] xl:w-[40%] py-[20.14px] md:py-[53px] md:gap-8">
             <a href="https://www.instagram.com/sec.esi/">
-              <img loading="lazy"  
+              <img
                 src="assets/images/layout/instagram.svg"
                 className="md:w-[40px] w-[23.5px]"
               />
             </a>
             <a href="https://www.facebook.com/sec.esi?mibextid=ZbWKwL">
-              <img loading="lazy"  
+              <img
                 src="assets/images/layout/fb.svg"
                 className="md:w-[40px]  w-[23.5px]"
               />
             </a>
             <a href="https://www.linkedin.com/company/sport-entertainment-club-esi">
-              <img loading="lazy"  
+              <img
                 src="assets/images/layout/linkedin.svg"
                 className="md:w-[40px]  w-[23.5px]"
               />
@@ -59,7 +58,7 @@ const Footer = () => {
         </div>
       </div>
       <p className="text-center py-[14.39px] md:py-[15px]  border-t-bg-white border-t-[1px]">
-        Copyright © 2024 Sports & Entertainment Club, ESI Algiers. All Rights
+        Copyright © 2024 Sports & Entertainment Club, ESI Algiers. All Rights
         Reserved.
       </p>
     </div>

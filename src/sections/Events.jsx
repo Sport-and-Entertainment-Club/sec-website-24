@@ -1,4 +1,3 @@
-import React from "react";
 import EventsSlider from "../components/events/EventsSlider";
 const Events = () => {
   return (

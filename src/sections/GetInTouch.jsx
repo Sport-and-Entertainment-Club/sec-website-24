@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import GradientButton from "../components/layout/GradientButton";
 
 const GetInTouch = () => {
@@ -13,7 +13,7 @@ const GetInTouch = () => {
   };
 
   return (
-    <div className="bg-purple w-screen flex flex-col items-center justify-center text-white pb-[34.2px] md:pb-[10px] pt-[15.66px] md:pt-[45px]">
+    <div className="bg-purple  md:w-full flex flex-col items-center justify-center text-white pb-[34.2px] md:pb-[10px] pt-[15.66px] md:pt-[45px]">
       <p className="text-[14.71px] md:text-[40px] font-bold font-montserrat">
         Get in Touch
       </p>

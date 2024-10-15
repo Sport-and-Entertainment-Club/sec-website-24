@@ -2,14 +2,14 @@ import logo from "../../public/assets/images/Logo.svg";
 import JoinUs from "../components/JoinUs";
 function AboutUsPage() {
   return (
-    <div className="w-full" id="About">
+    <div className="w-full " id="About">
       <JoinUs />
       <h2 className="mt-[40px] md:mt-[70px] font-[800] text-[32px] text-center md:text-[64px] font-montserrat text-text md:mb-4 mb-[20px] xl:mb-[40px]">
         About us
       </h2>
-      <div className="flex sm:gap-[20px] md:gap-[40px] flex-col-reverse md:flex-row md:py-[30px] px-[20px] md:px-[5%] lg:px-[10%] sm:flex-row flex-center items-center justify-center">
+       <div className="flex sm:gap-[20px] md:gap-[40px] flex-col-reverse md:flex-row md:py-[30px] px-[20px] md:px-[5%] lg:px-[10%] sm:flex-row flex-center items-center justify-center">
         <div className="mb-6">
-          <img loading="lazy"  
+          <img
             src={logo}
             alt="SEC Logo"
             className="w-[30vw] sm:w-[15vw] md:w-[40vw] md:h-[30vh]"
@@ -30,7 +30,7 @@ function AboutUsPage() {
             </p>
           </div>
         </div>
-      </div>
+      </div> 
     </div>
   );
 }
