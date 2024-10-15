@@ -4,7 +4,7 @@ import Navbar from "./components/layout/Navbar";
 import Events from "./sections/Events";
 import GetInTouch from "./sections/GetInTouch";
 
-import Goals from "./sections/GoalsandVision";
+import Goals from "./sections/GoalsAndVision";
 
 import AboutUsPage from "./sections/AboutUs";
 import Hero from "./components/heroSection";
