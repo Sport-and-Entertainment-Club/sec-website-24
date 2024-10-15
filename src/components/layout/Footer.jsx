@@ -1,8 +1,7 @@
-import React from "react";
 
 const Footer = () => {
   return (
-    <div className="px-[0] w-screen md:px-[4%] lg:px-[5%] flex flex-col bg-purple text-[7.67px] sm:text-[10px] md:text-[14px] lg:text-[16px] text-white pt-[30px] font-poppins font-[400]">
+    <div className="px-[0] w-full md:px-[4%] lg:px-[5%] flex flex-col bg-purple text-[7.67px] sm:text-[10px] md:text-[14px] lg:text-[16px] text-white pt-[30px] font-poppins font-[400]">
       <div className="md:grid md:grid-cols-[1fr,1.5fr] lg:grid-cols-[1.5fr,2.5fr]">
         <div className="flex flex-col items-center">
           <img
@@ -59,7 +58,7 @@ const Footer = () => {
         </div>
       </div>
       <p className="text-center py-[14.39px] md:py-[15px]  border-t-bg-white border-t-[1px]">
-        Copyright © 2024 Sports & Entertainment Club, ESI Algiers. All Rights
+        Copyright © 2024 Sports & Entertainment Club, ESI Algiers. All Rights
         Reserved.
       </p>
     </div>

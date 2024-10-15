@@ -15,7 +15,7 @@ const NavLinks = () => {
   };
   return (
     <div className=" hidden lg:block ">
-      <nav className="text-base grid grid-cols-5 gap-x-4 xl:gap-x-8 ">
+      <nav className="text-base grid grid-cols-5 justify-center items-center gap-x-4 xl:gap-x-8 ">
         {menuItems.map((item, index) => {
           return (
             <button key={index} className="flex justify-center items-center w-20" onClick={() => handleClick(index, item.href)}>
@@ -25,7 +25,7 @@ const NavLinks = () => {
             </button>
           );
         })}
-        <motion.div layout className={` bg-purple-ocean h-[3px] relative top-2 `} style={{gridColumnStart:selectedMenyItem}}></motion.div>
+        <motion.div layout className={` bg-purple-ocean w-20 h-[3px] relative top-2 `} style={{gridColumnStart:selectedMenyItem}}></motion.div>
       </nav>
     </div>
   );
