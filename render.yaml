@@ -1,0 +1,10 @@
+services:
+  - type: static
+    name: sec-website
+    plan: free
+    branch: main
+    buildCommand: npm install && npm run build
+    publishPath: build/
+    autoDeploy: true
+    regions:
+      - frankfurt
