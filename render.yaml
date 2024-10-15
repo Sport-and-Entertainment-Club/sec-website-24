@@ -1,5 +1,5 @@
 services:
-  - type: web
+  - type: static
     name: sec-website
     plan: free
     branch: main
