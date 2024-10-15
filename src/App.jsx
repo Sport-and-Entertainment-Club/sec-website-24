@@ -7,12 +7,14 @@ import AboutUsPage from "./sections/AboutUs";
 import Hero from "./components/heroSection";
 
 import OurActivities from "./sections/OurActivities";
+import GoalsAndVision from "./sections/GoalsAndVision";
 function App() {
   return (
     <div className="z-0 relative text-title bg-white md:bg-bg-white text-title-desktop flex flex-col mx-auto md:min-h-screen w-screen font-poppins">
       <Navbar />
       <Hero />
       <AboutUsPage />
+      <GoalsAndVision />
       <Events />
       <OurActivities />
       <GetInTouch />
