@@ -4,7 +4,6 @@ services:
     plan: free
     branch: main
     buildCommand: npm install && npm run build
-    publishPath: build/
+    staticPublishPath: build
     autoDeploy: true
-    regions:
-      - frankfurt
+    region: frankfurt
