@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import  { useState, useRef } from "react";
 import { SlArrowLeftCircle, SlArrowRightCircle } from "react-icons/sl";
 
 const Goals = () => {
@@ -82,7 +82,7 @@ const Goals = () => {
   return (
     <div
       id="GoalsVision"
-      className="overflow-hidden flex flex-col w-full md:py-[15px] md:px-[81px] md:gap-[60px] gap-[51.95px] items-center justify-center"
+      className="overflow-hidden flex flex-col md:py-[15px] md:px-[81px] md:gap-[60px] gap-[51.95px] items-center justify-center"
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}>

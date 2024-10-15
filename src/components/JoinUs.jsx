@@ -3,7 +3,7 @@ import img from "../../public/assets/images/sec.png";
 const JoinUs = () => {
   return (
     <div
-      className="relative py-[50px] bg-purple font-montserrat text-white h-[22vh] md:h-[44vh] w-[100vw] flex items-center justify-center z-0 inset-0"
+      className="relative py-[50px] bg-purple font-montserrat text-white h-[22vh] md:h-[44vh] w-full flex items-center justify-center z-0 inset-0"
       style={{
         backgroundImage: `url(${img})`,
         backgroundSize: "cover",

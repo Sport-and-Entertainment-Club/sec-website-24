@@ -54,12 +54,12 @@ const EventCard = ({ event }) => {
         <motion.div
           className="w-full h-full bg-purple-100 md:rounded-[10px] rounded-[5.09px] flex flex-col items-center justify-center p-[10.7px] lg:p-[15px] xl:p-[21px] backface-hidden"
           variants={variants}>
-          <img loading="lazy"   src={event.image} alt={event.title} />
+          <img src={event.image} alt={event.title} />
           <div className="flex relative w-full items-center justify-center">
             <p className="text-[13.28px] md:text-[18px] xl:text-[24px] font-montserrat font-[800] text-purple pt-[15.48px]">
               {event.title}
             </p>
-            <img loading="lazy"  
+            <img
               src="./assets/images/events/flip.svg"
               className="absolute right-0 bottom-[5px] w-[12.22px]  md:w-[20px] lg:w-[24px]"
               alt="Flip Icon"
@@ -83,7 +83,7 @@ const EventCard = ({ event }) => {
             <p className="text-[13.28px] md:text-[18px] xl:text-[24px] font-montserrat font-[800] text-purple pt-[15.48px]">
               {event.title}
             </p>
-            <img loading="lazy"  
+            <img
               src="./assets/images/events/flip.svg"
               className="absolute right-0 bottom-[5px] w-[12.22px] md:w-[20px] lg:w-[24px]"
               alt="Flip Icon"
