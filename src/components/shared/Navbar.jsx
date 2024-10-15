@@ -5,7 +5,7 @@ const Navbar = () => {
     <div className="hidden lg:flex fixed mt-4 w-full  justify-center  z-50 ">
       <div className="  flex flex-row justify-between items-center px-5 gap-20 xl:gap-36  py-2 bg-white/90  rounded-lg">
         <div>
-          <img src="./images/Logo.svg" alt="sec logo" />
+          <img loading="lazy"   src="./images/Logo.svg" alt="sec logo" />
         </div>
         <NavLinks />
         <div>

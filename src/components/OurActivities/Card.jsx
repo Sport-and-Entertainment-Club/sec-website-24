@@ -44,7 +44,7 @@ function Card({
           )}
         </p>
         {!shouldHideIcon && (
-          <img
+          <img loading="lazy"  
             src={icon}
             alt={title}
             className={`${
