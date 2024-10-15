@@ -1,4 +1,4 @@
-import logo from "../../public/assets/images//logo.svg";
+import logo from "../../public/assets/images/Logo.svg";
 import JoinUs from "../components/JoinUs";
 function AboutUsPage() {
   return (
