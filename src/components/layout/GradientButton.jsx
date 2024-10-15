@@ -45,9 +45,9 @@ export default function GradientButton({ Text, OnClick }) {
             WebkitBackgroundClip: "unset",
             WebkitTextFillColor: "unset",
             transition: { duration: 0.3 },
-          }}>
+          }}
+          onClick={OnClick}>
           {Text}
-          onClick = {OnClick}
         </motion.button>
       </div>
     </motion.div>
