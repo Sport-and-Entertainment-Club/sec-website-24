@@ -3,8 +3,12 @@ import Footer from "./components/layout/Footer";
 import Navbar from "./components/layout/Navbar";
 import Events from "./sections/Events";
 import GetInTouch from "./sections/GetInTouch";
-import Hero from "./components/heroSection";
+
+import Goals from "./sections/GoalsandVision";
+
 import AboutUsPage from "./sections/AboutUs";
+import Hero from "./components/heroSection";
+
 import OurActivities from "./sections/OurActivities";
 import OurTeam from "./sections/OurTeam";
 function App() {
@@ -13,6 +17,7 @@ function App() {
       <Navbar />
       <Hero />
       <AboutUsPage />
+      <Goals />
       <Events />
       <OurActivities />
       <OurTeam/>
