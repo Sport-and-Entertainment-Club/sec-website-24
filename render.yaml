@@ -2,6 +2,7 @@ services:
   - type: web
     name: sec-website
     plan: free
+    start
     branch: main
     buildCommand: npm install && npm run build
     staticPublishPath: build

@@ -143,7 +143,7 @@ const OurTeam = () => {
   return (
     <div
       id="Team"
-      className=" md:mt-[80px] flex flex-col md:grid md:grid-cols-[35%,65%] items-center my-8 px-[10px] md:px-[5%] md:h-full md:my-auto">
+      className=" md:mt-[80px] flex flex-col md:grid md:grid-cols-[35%,65%] items-center my-8 px-[10px] md:px-[3%] md:h-full md:my-auto w-[97vw] md:w-[95vw] mx-auto">
       <div className="w-[85%]">
         <div className="flex flex-col gap-4">
           <p className="text-center md:text-start leading-[30px] lg:leading-[55px] text-title-mobile lg:text-title-desktop font-[800]">

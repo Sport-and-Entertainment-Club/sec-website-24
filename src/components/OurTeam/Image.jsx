@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { lazy, useEffect } from "react";
 
 const Image = ({ color, role, image, name, active, width, margin }) => {
   useEffect(() => {}, []);
@@ -17,7 +17,12 @@ const Image = ({ color, role, image, name, active, width, margin }) => {
           background: "linear-gradient(rgba(30,15,45,0) 0%, #1E0F2D 100%)",
           width: width,
         }}></div>
-      <img src={image} alt={name} className="object-cover rounded-xl h-full" />
+      <img
+        loading={lazy}
+        src={image}
+        alt={name}
+        className="object-cover rounded-xl h-full"
+      />
       {active === "1" ? (
         <div
           className={`        transform transition duration-500 ${
@@ -35,20 +40,9 @@ const Image = ({ color, role, image, name, active, width, margin }) => {
         </div>
       ) : (
         <>
-          <div className="absolute left-0 bottom-8 w-16 h-16 bg-purple"></div>
-          <div
-            className={`absolute h-80 sm:-bottom-8 sm:left-[90px] md:-bottom-6 md:left-[96px] md2:-bottom-2 md2:left-50 lg:-bottom-10 lg:left-[96px] -bottom-12 left-[100%] w-full text-white ${
-              active === "1" ? "rotate-0" : "-rotate-90"
-            }`}
-            style={{
-              transform: `rotate(${active === "1" ? "0deg" : "-90deg"})`,
-              transition: "transform 0.5s ease-in-out, left 0.5s ease-in-out",
-            }}>
-            <p
-              className="text-sm md:text-lg font-extrabold text-nowrap"
-              style={{
-                transition: "transform 0.5s ease-in-out",
-              }}>
+          <div className="absolute left-0 bottom-8 w-16 h-16 bg-purple "></div>
+          <div className="absolute h-80 sm:-bottom-8 sm:left-[90px] md:-bottom-6 md:left-[96px] md2:-bottom-2 md2:left-50 lg:-bottom-10 lg:left-[96px] -bottom-12 left-[100%] translate-x-[20px] md:translate-x-0 w-full text-white -rotate-90">
+            <p className="text-sm md:text-lg font-extrabold text-nowrap ">
               {role}
             </p>
           </div>
