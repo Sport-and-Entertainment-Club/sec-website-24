@@ -76,3 +76,11 @@ body {
   -webkit-background-clip: text;
   color: transparent; /* Text becomes transparent to reveal the gradient */
 }
+
+p {
+  font-family: "Poppins", sans-serif;
+}
+
+h1 {
+  font-family: "Montserrat", sans-serif;
+}

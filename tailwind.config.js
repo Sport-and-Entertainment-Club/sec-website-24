@@ -32,7 +32,7 @@ export default {
         "text-mobile": "12px",
       },
       screens: {
-        md2: '840px', 
+        md2: "840px",
       },
     },
   },
