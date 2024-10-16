@@ -43,13 +43,13 @@ const EventsSlider = () => {
       title: "Py.Pong",
       description:
         "Py.PONG is a collaboration between SEC and WTM Algiers, featuring workshops and a ping pong competition. An exclusive opportunity for girls to learn and have fun !",
-      image: "./assets/images/events/esi-cup.svg",
+      image: "./assets/images/events/pypong.svg",
     },
     {
       title: "CHESSTIN",
       description:
         "CHESSTIN is a chess competition and a collaboration between SEC and ByteCraft, which took place in both Algiers and Bejaia. A fantastic opportunity for chess enthusiasts to learn, have fun, and connect with fellow players.",
-      image: "./assets/images/events/esi-cup.svg",
+      image: "./assets/images/events/chesstin.svg",
     },
   ];
 
