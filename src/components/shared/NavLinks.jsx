@@ -14,7 +14,7 @@ const NavLinks = () => {
     }
   };
   return (
-    <div className=" hidden lg:block ">
+    <div className=" hidden md:block ">
       <nav className="text-base grid grid-cols-5 gap-x-4 xl:gap-x-8 ">
         {menuItems.map((item, index) => {
           return (

@@ -1,6 +1,6 @@
 import "./App.css";
 import Footer from "./components/layout/Footer";
-import Navbar from "./components/layout/Navbar";
+import Navbar from "./components/shared/Navbar";
 import Events from "./sections/Events";
 import GetInTouch from "./sections/GetInTouch";
 
