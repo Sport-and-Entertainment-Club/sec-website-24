@@ -79,7 +79,11 @@ const Navbar = () => {
         ))}
       </div>
       <div className="hidden md:flex items-center justify-end">
-        <GradientButton Text={"Contact us"} OnClick={contactUs} />
+        <GradientButton
+          Text={"Contact us"}
+          OnClick={contactUs}
+          disabled={false}
+        />
       </div>
       <div className="flex justify-between md:hidden w-full items-center ">
         <img src="/assets/images/layout/logo.png" />
@@ -133,7 +137,11 @@ const Navbar = () => {
               </a>
             </p>
           ))}
-          <GradientButton Text={"Contact us"} OnClick={contactUs} />
+          <GradientButton
+            Text={"Contact us"}
+            OnClick={contactUs}
+            disabled={false}
+          />
         </motion.div>
       )}
     </div>

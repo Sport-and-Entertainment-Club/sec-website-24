@@ -13,7 +13,9 @@ const GetInTouch = () => {
   };
 
   return (
-    <div className="bg-purple  md:w-full flex flex-col items-center justify-center text-white pb-[34.2px] md:pb-[10px] pt-[15.66px] md:pt-[45px]">
+    <div
+      id="Contact"
+      className="bg-purple  md:w-full flex flex-col items-center justify-center text-white pb-[34.2px] md:pb-[10px] pt-[15.66px] md:pt-[45px]">
       <p className="text-[14.71px] md:text-[40px] font-bold font-montserrat">
         Get in Touch
       </p>
@@ -30,7 +32,11 @@ const GetInTouch = () => {
           className="text-[#1E0F2DAD] bg-transparent border-none outline-none text-[7.67px] sm:text-[10px] md:text-[16px]"
         />
         <div className="w-full flex items-center justify-end">
-          <GradientButton Text={"Submit"} OnClick={submitEmail} />
+          <GradientButton
+            Text={"Submit"}
+            OnClick={submitEmail}
+            disabled={true}
+          />
         </div>
       </div>
     </div>

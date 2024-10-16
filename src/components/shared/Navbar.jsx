@@ -4,11 +4,20 @@ import Hamburger from "hamburger-react";
 import menuItems from "../../constants/menu";
 import GradientButton from "../layout/GradientButton";
 import { AnimatePresence, motion } from "framer-motion";
+const contactUs = () => {
+  const section = document.getElementById("Contact");
+  if (section) {
+    section.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }
+  // alert("Contact us");
+};
+
 const Navbar = () => {
   const [isOpen, setOpen] = useState(false);
-  const contactUs = () => {
-    alert("Contact us");
-  };
+
   return (
     <>
       <div className="hidden md:flex fixed mt-4 w-full  justify-center  z-50 text-base ">
@@ -17,7 +26,11 @@ const Navbar = () => {
             <img src="./images/Logo.svg" alt="sec logo" />
           </div>
           <NavLinks />
-          <GradientButton Text={"Contact us"} OnClick={contactUs} />
+          <GradientButton
+            Text={"Contact us"}
+            OnClick={contactUs}
+            disabled={false}
+          />
         </div>
       </div>
 
@@ -65,7 +78,7 @@ const Menu = ({ setOpen }) => {
         animate={{ y: 0 }}
         exit={{ y: -200 }}
         transition={{ duration: 0.3 }}
-        className={`absolute top-0   flex flex-col justify-center items-center gap-8 py-20 pb-10 text-base  bg-[#F2F1FC] w-full z-20`}>
+        className={`absolute top-0  flex flex-col justify-center items-center gap-8 py-20 pb-10 text-base  bg-[#F2F1FC] w-full z-20`}>
         {menuItems.map((item, index) => {
           return (
             <button
@@ -85,11 +98,11 @@ const Menu = ({ setOpen }) => {
             </button>
           );
         })}
-        <div>
-          <button className=" bg-gradient-to-r from-blue-ocean to-purple-ocean font-semibold  rounded-full  px-4 py-1 transition-all duration-150 ">
-            <p className=" text-white text-base">contact us</p>
-          </button>
-        </div>
+        <GradientButton
+          Text={"Contact us"}
+          OnClick={contactUs}
+          disabled={false}
+        />
       </motion.div>
     </AnimatePresence>
   );
