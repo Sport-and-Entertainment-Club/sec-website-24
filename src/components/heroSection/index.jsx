@@ -6,7 +6,7 @@ const Hero = () => {
   return (
     <div
       id="Home"
-      className="z-0  mx-auto  flex flex-col md:flex-row relative bg-white space-y-8 md:space-y-0 mt-[50px] md:mt-0">
+      className="z-0  mx-auto  flex flex-col md:flex-row relative bg-white space-y-8 md:space-y-0 mt-0 md:mt-0">
       <div className=" hidden md:block absolute  top-0 left-0 bg-bg-white w-[77.6%] h-[75%] z-0">
         <div className="absolute -bottom-0 w-full h-28 bg-bg-white clip-triangle rotate-360 translate-y-28 "></div>
       </div>
