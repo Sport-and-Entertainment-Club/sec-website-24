@@ -34,7 +34,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      <div className=" relative md:hidden ">
+      <div className="w-full fixed   md:hidden z-40 ">
         <div className="flex text-base  flex-row justify-between items-center px-6 sm:px-10 py-2 sm:py-5 bg-[#F2F1FC] ">
           <div className="relative z-50">
             <img src="./images/Logo.svg" alt="sec logo" />
