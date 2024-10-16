@@ -2,10 +2,13 @@ import { useState } from "react";
 import NavLinks from "./NavLinks";
 import Hamburger from "hamburger-react";
 import menuItems from "../../constants/menu";
+import GradientButton from "../layout/GradientButton";
 import { AnimatePresence, motion } from "framer-motion";
 const Navbar = () => {
   const [isOpen, setOpen] = useState(false);
-
+  const contactUs = () => {
+    alert("Contact us");
+  };
   return (
     <>
       <div className="hidden md:flex fixed mt-4 w-full  justify-center  z-50 text-base ">
@@ -14,15 +17,7 @@ const Navbar = () => {
             <img src="./images/Logo.svg" alt="sec logo" />
           </div>
           <NavLinks />
-          <div>
-            <button className=" bg-gradient-to-r from-blue-ocean to-purple-ocean font-semibold  rounded-full p-[2px] group transition-all duration-150 ">
-              <div className=" px-5 py-2 bg-white  rounded-full group-hover:bg-transparent">
-                <p className=" gradient-text group-hover:text-white text-lg">
-                  contact us
-                </p>
-              </div>
-            </button>
-          </div>
+          <GradientButton Text={"Contact us"} OnClick={contactUs} />
         </div>
       </div>
 
@@ -70,23 +65,20 @@ const Menu = ({ setOpen }) => {
         animate={{ y: 0 }}
         exit={{ y: -200 }}
         transition={{ duration: 0.3 }}
-        className={`absolute top-0   flex flex-col justify-center items-center gap-8 py-20 pb-10 text-base  bg-[#F2F1FC] w-full z-20`}
-      >
+        className={`absolute top-0   flex flex-col justify-center items-center gap-8 py-20 pb-10 text-base  bg-[#F2F1FC] w-full z-20`}>
         {menuItems.map((item, index) => {
           return (
             <button
               key={index}
               className=""
-              onClick={() => handleClick(index, item.href)}
-            >
+              onClick={() => handleClick(index, item.href)}>
               <div href={item.href} className="">
                 <p
                   className={`  ${
                     selectedMenyItem != index + 1
                       ? " text-blue-300 font-medium"
                       : "gradient-text font-bold"
-                  } transition-all duration-150`}
-                >
+                  } transition-all duration-150`}>
                   {item.title}
                 </p>
               </div>
