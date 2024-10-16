@@ -17,12 +17,7 @@ const Image = ({ color, role, image, name, active, width, margin }) => {
           background: "linear-gradient(rgba(30,15,45,0) 0%, #1E0F2D 100%)",
           width: width,
         }}></div>
-      <img
-        loading="lazy"
-        src={image}
-        alt={name}
-        className="object-cover rounded-xl h-full"
-      />
+      <img src={image} alt={name} className="object-cover rounded-xl h-full" />
       {active === "1" ? (
         <div
           className={`        transform transition duration-500 ${

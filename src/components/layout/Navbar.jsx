@@ -46,7 +46,7 @@ const Navbar = () => {
           : "bg-[#F2F1FC] md:bg-navbar-white"
       }  text-[14px] xl:text-[16px] md:grid md:grid-cols-[18vw,40vw,22vw] lg:w-[80vw] lg:grid-cols-[15vw,35vw,22vw] xl:w-[70vw] xl:grid-cols-[17vw,29vw,19vw] md:items-center justify-center`}>
       <div className="w-full hidden md:flex justify-start ">
-        <img loading="lazy"   src="/assets/images/layout/logo.png" />
+        <img src="/assets/images/layout/logo.png" />
       </div>
 
       <div className="hidden w-full md:flex justify-between items-center text-blue-300 font-poppins">
@@ -82,10 +82,10 @@ const Navbar = () => {
         <GradientButton Text={"Contact us"} OnClick={contactUs} />
       </div>
       <div className="flex justify-between md:hidden w-full items-center ">
-        <img loading="lazy"   src="/assets/images/layout/logo.png" />
+        <img src="/assets/images/layout/logo.png" />
         {/* Menu Button for Mobile */}
         <div>
-          <img loading="lazy"  
+          <img
             src={
               isMenuOpen
                 ? "/assets/images/layout/x.png"
