@@ -46,7 +46,7 @@ function OurActivities() {
   return (
     <div
       id="Activities"
-      className="my-[50px] md:my-[120px] flex justify-center items-center py-8 z-0 px-8">
+      className="w-full my-[20px] md:my-[80px] flex justify-center items-center py-8 z-0 px-8">
       <div className="flex flex-col justify-center items-center lg:w-3/5 sm:w-4/5 w-full -z-0">
         <p className="my-4 md:my-8 font-montserrat text-title-mobile lg:text-title-desktop font-[800]">
           Our Activities

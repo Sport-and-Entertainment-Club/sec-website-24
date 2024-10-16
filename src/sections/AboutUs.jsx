@@ -4,10 +4,10 @@ function AboutUsPage() {
   return (
     <div className="w-full " id="About">
       <JoinUs />
-      <h2 className="mt-[40px] md:mt-[70px] font-[800] text-[32px] text-center md:text-[64px] font-montserrat text-text md:mb-4 mb-[20px] xl:mb-[40px]">
+      <p className="mt-[20px] md:mt-[80px] text-center md:text-[40px] text-title-mobile lg:text-[50px] xl:text-title-desktop font-[800] font-montserrat pb-[19.86px] md:pb-0 ">
         About us
-      </h2>
-       <div className="flex sm:gap-[20px] md:gap-[40px] flex-col-reverse md:flex-row md:py-[30px] px-[20px] md:px-[5%] lg:px-[10%] sm:flex-row flex-center items-center justify-center">
+      </p>
+      <div className="flex sm:gap-[20px] md:gap-[40px] flex-col-reverse md:flex-row md:py-[30px] px-[20px] md:px-[5%] lg:px-[10%] sm:flex-row flex-center items-center justify-center">
         <div className="mb-6">
           <img
             src={logo}
@@ -30,7 +30,7 @@ function AboutUsPage() {
             </p>
           </div>
         </div>
-      </div> 
+      </div>
     </div>
   );
 }

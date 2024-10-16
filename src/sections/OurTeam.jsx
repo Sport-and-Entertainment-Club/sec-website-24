@@ -18,7 +18,7 @@ import mark1 from "../assets/Marketing1.svg";
 import mark2 from "../assets/Marketing2.svg";
 import dev1 from "../assets/Dev1.svg";
 import dev2 from "../assets/Dev2.svg";
-import Slide from "../components/OurTeam/Image";
+import Image from "../components/OurTeam/Image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, A11y, Navigation } from "swiper/modules";
 import { motion, AnimatePresence } from "framer-motion";
@@ -29,8 +29,9 @@ import "swiper/css/navigation";
 
 const OurTeam = () => {
   const swiperRef = useRef(null);
-  const [activeIndex, setActiveIndex] = useState(); // Active index state
+  const [activeIndex, setActiveIndex] = useState(0); // Active index state
   const [isInitialized, setIsInitialized] = useState(false); // Force re-render once Swiper is initialized
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
   const Team = [
     { Name: "Haddad Wassim", Role: "President", img: lead, color: "#B6CAFE" },
@@ -40,18 +41,36 @@ const OurTeam = () => {
       img: vice,
       color: "#CCBAFE",
     },
-    { Name: "Hennane Douaa El-Ikhlas", Role: "HR", img: rh1, color: "#C653FB" },
+    {
+      Name: "Hennane Douaa El-Ikhlas",
+      Role: "HR",
+      img: rh1,
+      color: "#C653FB",
+    },
     {
       Name: "Iyade Hamlaoui",
       Role: "HR",
       img: rh2,
       color: "rgba(15, 218, 254, 0.6)",
     },
+
     {
       Name: "Herkat Wifak",
       Role: "Design manager",
       img: des1,
       color: "#B6CAFE",
+    },
+    {
+      Name: "Messikh Wissal",
+      Role: "Dev manager",
+      img: dev1,
+      color: "#8747A5",
+    },
+    {
+      Name: "Akhrib Abderahmane",
+      Role: "Dev manager",
+      img: dev2,
+      color: "#259EB4",
     },
     { Name: "Yasmine", Role: "Design manager", img: des2, color: "#CCBAFE" },
     {
@@ -90,12 +109,7 @@ const OurTeam = () => {
       img: mark2,
       color: "#8747A5",
     },
-    {
-      Name: "Bellala Hanane",
-      Role: "Communication manager",
-      img: comm2,
-      color: "#CCBAFE",
-    },
+
     {
       Name: "Seddiki Wassim",
       Role: "Event manager",
@@ -103,16 +117,10 @@ const OurTeam = () => {
       color: "#B6CAFE",
     },
     {
-      Name: "Messikh Wissal",
-      Role: "Dev manager",
-      img: dev1,
-      color: "#8747A5",
-    },
-    {
-      Name: "Akhrib Abderahmane",
-      Role: "Dev manager",
-      img: dev2,
-      color: "#259EB4",
+      Name: "Bellala Hanane",
+      Role: "Communication manager",
+      img: comm2,
+      color: "#CCBAFE",
     },
   ];
 
@@ -129,103 +137,90 @@ const OurTeam = () => {
   };
 
   useEffect(() => {
-    setActiveIndex(0);
-  }, []);
+    setScreenWidth(window.innerWidth);
+  }, [activeIndex]);
 
   return (
     <div
       id="Team"
-      className="flex flex-col items-center my-8  sm:flex-row md:px-10 ">
-      <div className="flex text-purple justify-between gap-6 sm:gap-12 h-full text-center flex-col w-full sm:text-start sm:w-1/3">
+      className=" md:mt-[80px] flex flex-col md:grid md:grid-cols-[35%,65%] items-center my-8 px-[10px] md:px-[3%] md:h-full md:my-auto w-[97vw] md:w-[95vw] mx-auto">
+      <div className="w-[85%]">
         <div className="flex flex-col gap-4">
-          <h1 className="hidden lg:flex flex-col gap-[20px] sm:text-4xl text-title-mobile sm:font-montserrat sm:font-extrabold xl:text-title-desktop ">
+          <p className="text-center md:text-start leading-[30px] lg:leading-[55px] text-title-mobile lg:text-title-desktop font-[800]">
             Meet Our Team
-          </h1>
-          <h1 className="lg:hidden text-title-mobile font-montserrat font-extrabold ">
-            Meet Our Team
-          </h1>
-          <p className="text-text-mobile lg:text-[18px]">
+          </p>
+          <p className="md:text-start text-center text-text-mobile lg:text-[18px]">
             Creative minds working together to bring our goals to life and
             create amazing experiences for everyone.
           </p>
         </div>
-        <div className="flex flex-row justify-center items-center sm:justify-start mb-5 sm:gap-12 gap-10">
+        {/* Navigation */}
+        <div className="pt-[20px] md:pt-[50px] flex flex-row justify-center items-center sm:justify-start mb-5 sm:gap-12 gap-10">
           <div
-            className=" w-10 h-10 sm:w-10 sm:h-10 flex justify-center items-center rounded-full  border-pink border-[1.5px]  bg-whiterounded-full cursor-pointer"
+            className=" md:w-10 w-7 md:h-10 h-7 sm:md:w-10  sm:md:h-10  flex justify-center items-center rounded-full  bg-pink  cursor-pointer"
             onClick={handlePrev}>
-            <GrLinkPrevious className="w-6 sm:w-6 stroke-pink cursor-pointer" />
+            <GrLinkPrevious className="w-4 md:w-6 stroke-white cursor-pointer" />
           </div>
-          <div
-            className=" w-10 h-10 sm:w-10 sm:h-10 flex justify-center items-center rounded-full  bg-pink  cursor-pointer"
-            onClick={handleNext}>
-            <GrLinkNext className="w-6 sm:w-6 stroke-white cursor-pointer" />
+          <div className=" md:w-10  md:h-10 h-7 sm:md:w-10 w-7 sm:md:h-10  flex justify-center items-center rounded-full  bg-white  cursor-not-allowed">
+            <GrLinkNext className="w-4 md:w-6 stroke-pink" />
           </div>
         </div>
       </div>
-
-      <div className="w-full xl:px-11 items-center md:w-[500px] lg:w-[600px] xl:w-[920px] lg:pl-[20px] ">
-        <AnimatePresence>
-          <motion.div>
-            <Swiper
-              ref={swiperRef}
-              modules={[Pagination, Navigation, A11y]}
-              spaceBetween={30}
-              slidesPerView={1.5}
-              centeredSlides:true
-              loop
-              speed={1000}
-              breakpoints={{
-                480: {
-                  slidesPerView: 1.5,
-                  spaceBetween: 5,
-                  centeredSlides: true,
-                },
-                1024: {
-                  slidesPerView: 3,
-                  spaceBetween: 5,
-                  centeredSlides: true,
-                },
-                1280: {
-                  slidesPerView: 4,
-                  spaceBetween: 5,
-                  centeredSlides: true,
-                },
-              }}
-              onSlideChange={(swiper) => {
-                setActiveIndex(swiper.realIndex);
-              }}
-              onInit={(swiper) => {
-                swiper.update();
-                setIsInitialized(true);
-              }}>
-              {Team.map((member, index) => (
-                <SwiperSlide
-                  key={index}
+      <AnimatePresence>
+        <motion.div className="z-0 w-full">
+          <Swiper
+            ref={swiperRef}
+            modules={[Pagination, Navigation, A11y]}
+            centeredSlides={false}
+            slidesPerView="auto"
+            slidePrev={false}
+            loop
+            speed={1000}
+            onSlideChange={(swiper) => {
+              setActiveIndex(swiper.realIndex);
+            }}
+            spaceBetween={5}
+            onInit={(swiper) => {
+              swiper.update();
+              setIsInitialized(true);
+            }}>
+            {Team.map((member, index) => (
+              <SwiperSlide
+                key={index}
+                style={{
+                  width:
+                    screenWidth >= 1024
+                      ? activeIndex === index
+                        ? "300px" // Large screen width for active slide
+                        : "150px" // Large screen width for inactive slide
+                      : screenWidth >= 768
+                      ? activeIndex === index
+                        ? "250px" // Medium screen width for active slide
+                        : "120px" // Medium screen width for inactive slide
+                      : activeIndex === index
+                      ? "200px" // Small screen width for active slide
+                      : "100px", // Small screen width for inactive slide                  transition: "width 0.5s ease",
+                }}>
+                <div
+                  className={`transition-all duration-500`}
                   style={{
-                    width: activeIndex === index ? "50%" : "20%", // Correctly using strings for percentages
-                    transition: "width 0.5s ease",
+                    display: "flex",
+                    justifyContent: "start",
+                    alignItems: "start",
                   }}>
-                  <div
-                    className={`transition-all duration-500`}
-                    style={{
-                      display: "flex",
-                      justifyContent: "start",
-                      alignItems: "start",
-                    }}>
-                    <Slide
-                      image={member.img}
-                      name={member.Name}
-                      role={member.Role}
-                      color={member.color}
-                      active={activeIndex === index ? "1" : "0"}
-                    />
-                  </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </motion.div>
-        </AnimatePresence>
-      </div>
+                  <Image
+                    image={member.img}
+                    name={member.Name}
+                    role={member.Role}
+                    color={member.color}
+                    active={activeIndex === index ? "1" : "0"}
+                  />
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </motion.div>
+      </AnimatePresence>
     </div>
   );
 };

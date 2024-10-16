@@ -1,7 +1,38 @@
-import  { useState, useRef } from "react";
-import { SlArrowLeftCircle, SlArrowRightCircle } from "react-icons/sl";
+import { useState, useRef, useEffect } from "react";
+import { GrLinkNext, GrLinkPrevious } from "react-icons/gr";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, A11y, Navigation } from "swiper/modules";
+import { motion, AnimatePresence } from "framer-motion";
 
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import Card from "../components/goalsAndVision/Card";
 const Goals = () => {
+  const swiperRef = useRef(null);
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  useEffect(() => {
+    const handleResize = () => setScreenWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const handlePrev = () => {
+    if (swiperRef.current && swiperRef.current.swiper) {
+      swiperRef.current.swiper.slidePrev();
+    }
+  };
+
+  const handleNext = () => {
+    if (swiperRef.current && swiperRef.current.swiper) {
+      swiperRef.current.swiper.slideNext();
+    }
+  };
   const cards = [
     {
       title: "Participation",
@@ -35,88 +66,46 @@ const Goals = () => {
     },
   ];
 
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [customTransition, setCustomTransition] = useState(false);
-  const touchStartRef = useRef(null);
-  const touchEndRef = useRef(null);
-
-  // Function to go to the next slide
-  const nextSlide = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex < cards.length - 3 ? prevIndex + 1 : 0
-    );
-    setCustomTransition(true); // Enable custom transition for the next slide
-  };
-
-  // Function to go to the previous slide
-  const prevSlide = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex > 0 ? prevIndex - 1 : cards.length - 3
-    );
-    setCustomTransition(true); // Enable custom transition for the previous slide
-  };
-
-  // Handling touch events
-  const handleTouchStart = (e) => {
-    touchStartRef.current = e.touches[0].clientX;
-  };
-
-  const handleTouchMove = (e) => {
-    touchEndRef.current = e.touches[0].clientX;
-  };
-
-  const handleTouchEnd = () => {
-    if (touchStartRef.current && touchEndRef.current) {
-      const distance = touchStartRef.current - touchEndRef.current;
-      // Swipe left (next)
-      if (distance > 50) {
-        nextSlide();
-      }
-      // Swipe right (previous)
-      else if (distance < -50) {
-        prevSlide();
-      }
-    }
-  };
-
   return (
     <div
       id="GoalsVision"
-      className="overflow-hidden flex flex-col md:py-[15px] md:px-[81px] md:gap-[60px] gap-[51.95px] items-center justify-center"
-      onTouchStart={handleTouchStart}
-      onTouchMove={handleTouchMove}
-      onTouchEnd={handleTouchEnd}>
-      <p className="text-[32px] md:text-[64px] text-title font-bold font-montserrat">
+      className="overflow-hidden flex flex-col w-full md:py-[15px] md:px-[81px] md:gap-[60px] gap-[15.95px] items-center justify-center">
+      <p className="my-4 md:my-8 font-montserrat text-title-mobile lg:text-title-desktop font-[800]">
         Goals&Vision
       </p>
-      <div className="flex gap-[32.85px] md:gap-[48px] items-center justify-between">
-        {cards.slice(currentIndex, currentIndex + 3).map((card, index) => (
-          <div
-            key={index}
-            className={`w-[224.45px] h-[104.93px] gap-[10.95] md:w-[410px] md:h-[188.8px] flex flex-col md:gap-[20px] bg-purple-50 hover:bg-hover-purple py-[10.95px] px-[24.64px] md:py-[20px] md:px-[45px] rounded-xl shadow-lg text-center custom-card hover:bg-purple-700 transform transition-transform duration-2000 hover:-translate-y-5 swiper-slide ${
-              customTransition ? "custom-transition" : ""
-            }`}>
-            <h2 className="text-[15.33px] font-montserrat md:text-[28px] mt-2 md:mt-3 font-bold text-purple-800">
-              {card.title}
-            </h2>
-            <p className="text-[9.85px] md:text-[18px] text-purple-700 font-poppins">
-              {card.description}
-            </p>
-          </div>
-        ))}
+      <div className="w-full flex flex-col">
+        <div className="xl:max-w-[1200px] mx-auto w-full">
+          <Swiper
+            ref={swiperRef}
+            centeredSlides={true}
+            modules={[Navigation, Pagination]}
+            spaceBetween={screenWidth > 800 ? 20 : screenWidth > 600 ? 10 : 80}
+            slidesPerView={screenWidth > 800 ? 3 : screenWidth > 600 ? 3 : 2.5}
+            navigation={{
+              prevEl: ".swiper-button-prev",
+              nextEl: ".swiper-button-next",
+            }}
+            loop={true}>
+            {cards.map((goal, index) => (
+              <SwiperSlide key={index}>
+                <Card goal={goal} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
       </div>
-
-      <div className="flex w-full justify-center md:justify-end mt-4 gap-[30px] md:gap-[50px] md:mr-[100px]">
-        <button
-          onClick={prevSlide}
-          className="text-pink font-extralight hover:text-white hover:bg-pink rounded-full">
-          <SlArrowLeftCircle size={window.innerWidth > 768 ? 52 : 30} />
-        </button>
-        <button
-          onClick={nextSlide}
-          className="text-pink font-extralight hover:text-white hover:bg-pink rounded-full">
-          <SlArrowRightCircle size={window.innerWidth > 768 ? 52 : 30} />
-        </button>
+      {/* Navigation */}
+      <div className=" flex flex-row justify-center items-center sm:justify-start mb-5 sm:gap-12 gap-10">
+        <div
+          className=" md:w-10 w-7 md:h-10 h-7 sm:md:w-10  sm:md:h-10  flex justify-center items-center rounded-full  bg-pink  cursor-pointer"
+          onClick={handlePrev}>
+          <GrLinkPrevious className="w-4 md:w-6 stroke-white cursor-pointer" />
+        </div>
+        <div
+          className=" md:w-10  md:h-10 h-7 sm:md:w-10 w-7 sm:md:h-10  flex justify-center items-center rounded-full  bg-white cursor-pointer"
+          onClick={handleNext}>
+          <GrLinkNext className="w-4 md:w-6 stroke-pink" />
+        </div>
       </div>
     </div>
   );
