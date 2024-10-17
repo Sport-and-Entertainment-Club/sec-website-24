@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import  { useState, useEffect } from "react";
 import GradientButton from "./GradientButton";
 import { motion } from "framer-motion";
+import NavLinks from "../shared/NavLinks"
 const Navbar = () => {
   const [activeLink, setActiveLink] = useState("Home");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -50,7 +51,7 @@ const Navbar = () => {
       </div>
 
       <div className="hidden w-full md:flex justify-between items-center text-blue-300 font-poppins">
-        {navbarLinks.map((n) => (
+        {/* {navbarLinks.map((n) => (
           <p
             key={n.title}
             className={`${
@@ -76,7 +77,8 @@ const Navbar = () => {
               {n.title}
             </a>
           </p>
-        ))}
+        ))} */}
+         <NavLinks />
       </div>
       <div className="hidden md:flex items-center justify-end">
         <GradientButton
