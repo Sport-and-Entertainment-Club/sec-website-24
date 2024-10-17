@@ -4,7 +4,9 @@ import Slider from "./Slider";
 import { images, images2 } from "../../constants/imagesScroller";
 const Hero = () => {
   return (
-    <div className="z-0  mx-auto  flex flex-col md:flex-row relative bg-white space-y-8 md:space-y-0 mt-[50px] md:mt-0">
+    <div
+      id="Home"
+      className="z-0  mx-auto  flex flex-col md:flex-row relative bg-white space-y-8 md:space-y-0 mt-20 md:mt-0">
       <div className=" hidden md:block absolute  top-0 left-0 bg-bg-white w-[77.6%] h-[75%] z-0">
         <div className="absolute -bottom-0 w-full h-28 bg-bg-white clip-triangle rotate-360 translate-y-28 "></div>
       </div>
@@ -24,7 +26,9 @@ const Hero = () => {
             yourself, you`ll find it all at SEC !
           </p>
           <div className="mt-6 md:mt-0 w-full flex justify-center md:justify-start">
-            <button className=" font-montserrat text-white font-medium px-[29px] py-[7px] md:py-2 md:px-10 bg-blue-400 rounded-xl text-base lg:text-xl">
+            <button
+              disabled
+              className=" cursor-not-allowed opacity-50 font-montserrat text-white font-medium px-[29px] py-[7px] md:py-2 md:px-10 bg-blue-400 rounded-xl text-base lg:text-xl">
               Join us
             </button>
           </div>

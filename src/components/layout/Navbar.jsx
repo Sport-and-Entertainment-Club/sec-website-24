@@ -36,7 +36,9 @@ const Navbar = () => {
       link: "Activities",
     },
   ];
-  useEffect(() => {}, [activeLink]);
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [activeLink]);
   return (
     <div
       className={`z-10 flex flex-col md:flex-row items-center md:rounded-[15px] px-[30px] py-[11px] text-purple md:w-[88vw] fixed top-0 w-screen md:top-7 md:left-1/2 md:-translate-x-1/2 ${
@@ -69,6 +71,7 @@ const Navbar = () => {
             <a
               onClick={() => {
                 setActiveLink(n.title);
+                setIsMenuOpen(false);
               }}
               href={`#${n.link}`}>
               {n.title}
@@ -78,7 +81,11 @@ const Navbar = () => {
          <NavLinks />
       </div>
       <div className="hidden md:flex items-center justify-end">
-        <GradientButton Text={"Contact us"} OnClick={contactUs} />
+        <GradientButton
+          Text={"Contact us"}
+          OnClick={contactUs}
+          disabled={false}
+        />
       </div>
       <div className="flex justify-between md:hidden w-full items-center ">
         <img src="/assets/images/layout/logo.png" />
@@ -122,10 +129,21 @@ const Navbar = () => {
                 WebkitTextFillColor:
                   activeLink === n.title ? "transparent" : "initial",
               }}>
-              <a href={`#${n.link}`}>{n.title}</a>
+              <a
+                onClick={() => {
+                  setActiveLink(n.title);
+                  setIsMenuOpen(false);
+                }}
+                href={`#${n.link}`}>
+                {n.title}
+              </a>
             </p>
           ))}
-          <GradientButton Text={"Contact us"} OnClick={contactUs} />
+          <GradientButton
+            Text={"Contact us"}
+            OnClick={contactUs}
+            disabled={false}
+          />
         </motion.div>
       )}
     </div>
