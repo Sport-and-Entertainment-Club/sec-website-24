@@ -11,6 +11,7 @@ import Hero from "./components/heroSection";
 
 import OurActivities from "./sections/OurActivities";
 import OurTeam from "./sections/OurTeam";
+import Team from "./components/team";
 function App() {
   return (
     <div className="z-0 relative text-title bg-white md:bg-bg-white text-title-desktop flex flex-col mx-auto md:min-h-screen w-screen md:w-auto font-poppins ">
@@ -19,6 +20,7 @@ function App() {
       <AboutUsPage />
       <Goals />
       <OurTeam />
+      <Team />
       <Events />
       <OurActivities />
       <GetInTouch />
