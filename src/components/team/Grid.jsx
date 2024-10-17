@@ -1,14 +1,26 @@
-import { AnimatePresence, motion } from "framer-motion";
+import {  motion } from "framer-motion";
 import { useState } from "react";
 const Grid = () => {
-  const [swich, setSwich] = useState(false);
+  const [swich, setSwich] = useState(true);
+  const [swich02, setSwich02] = useState(true);
+  const [swich03, setSwich03] = useState(true);
+  const [swich04, setSwich04] = useState(true);
+
   const handleClick = () => {
     setSwich((prev) => !prev);
-  };
-  const 
+  }; 
+  const handleClick02 = () => {
+    setSwich02((prev) => !prev);
+  }; 
+  const handleClick03 = () => {
+    setSwich03((prev) => !prev);
+  }; 
+  const handleClick04 = () => {
+    setSwich04((prev) => !prev);
+  }; 
   return (
     <div className="flex flex-col gap-4">
-      <div className=" min-w-[960px] flex flex-row 0">
+      <div className=" min-w-[960px] flex flex-row ">
         {swich && (
           <motion.div
             transition={{ duration: 1 }}
@@ -16,20 +28,22 @@ const Grid = () => {
             className={` flex-grow  bg-teal-700 h-[430px] mr-6`}
           ></motion.div>
         )}
-        <motion.div
+       {swich02 &&  <motion.div
           layout
           className={`  bg-rose-700 ${
             swich ? "w-[155px]" : "flex-grow"
           } h-[430px] mr-6`}
-        ></motion.div>
+        ></motion.div>}
+        {swich03 && <motion.div
+          layout
+          className={`  bg-green-700  ${
+            swich02 ? "w-[155px]" : "flex-grow"
+          } h-[430px] mr-6`}
+        ></motion.div>}
         <motion.div
           layout
-          className={`  bg-green-700 w-[155px] h-[430px] mr-6`}
-        ></motion.div>
-        <motion.div
-          layout
-          className={`  bg-gray-700 w-[155px] h-[430px] mr-6`}
-        ></motion.div>
+          className={`  bg-gray-700  h-[430px] mr-6 ${!(!swich && !swich02 && !swich03) ? "w-[155px]" : "flex-grow"}`}
+        >here</motion.div>
         {!swich && (
           <motion.div
             layout
@@ -39,9 +53,40 @@ const Grid = () => {
             className={`bg-yellow-700 w-[155px] h-[430px] mr-6`}
           ></motion.div>
         )}
+         {!swich02 && (
+          <motion.div
+            layout
+            initial={{ width: "0" }}
+            animate={{ width: !swich02 ? "155px" : "0" }}
+            transition={{ duration: 1 }}
+            className={` bg-purple w-[155px] h-[430px] mr-6`}
+          ></motion.div>
+        )}
+        {!swich03 && (
+          <motion.div
+            layout
+            initial={{ width: "0" }}
+            animate={{ width: !swich03 ? "155px" : "0" }}
+            transition={{ duration: 1 }}
+            className={`  bg-fuchsia-500 w-[155px] h-[430px] mr-6`}
+          ></motion.div>
+        )}
+        {!swich04 && (
+          <motion.div
+            layout
+            initial={{ width: "0" }}
+            animate={{ width: !swich04 ? "155px" : "0" }}
+            transition={{ duration: 1 }}
+            className={`  bg-blue-800 w-[155px] h-[430px] mr-6`}
+          ></motion.div>
+        )}
       </div>
       <button onClick={handleClick}>switch</button>
       <p> swish : {swich ? "True" : "False"}</p>
+      <button onClick={handleClick02}>switch02</button>
+      <p> swish 02 : {swich02 ? "True" : "False"}</p>
+      <button onClick={handleClick03}>switch02</button>
+      <p> swish 03 : {swich03 ? "True" : "False"}</p>
     </div>
   );
 };

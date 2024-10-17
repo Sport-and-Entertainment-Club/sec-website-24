@@ -1,6 +1,6 @@
 import { useState } from "react";
 import NavLinks from "./NavLinks";
-import Hamburger from "hamburger-react";
+// import Hamburger from "hamburger-react";
 import menuItems from "../../constants/menu";
 import GradientButton from "../layout/GradientButton";
 import { AnimatePresence, motion } from "framer-motion";
@@ -40,13 +40,13 @@ const Navbar = () => {
             <img src="./images/Logo.svg" alt="sec logo" />
           </div>
           <div className="relative z-50">
-            <Hamburger
+            {/* <Hamburger
               toggled={isOpen}
               toggle={setOpen}
               color="#6D95FC"
               size={34}
               rounded={true}
-            />
+            /> */}
           </div>
         </div>
         {isOpen && <Menu setOpen={setOpen} />}

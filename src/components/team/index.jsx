@@ -3,6 +3,7 @@ import Slider from "./Slider";
 import { useState } from "react";
 import team from "../../constants/team";
 import Grid from "./Grid";
+import CoreTeam from "./CoreTeam";
 const Team = () => {
   const [teamIndex, setTeamIndex] = useState([0, 4]);
   const incrementIndex = () => {
@@ -30,6 +31,7 @@ const Team = () => {
       />
       {/* <Slider teamIndex={teamIndex} team={team}  /> */}
       <Grid />
+      {/* <CoreTeam /> */}
     </div>
   );
 };
