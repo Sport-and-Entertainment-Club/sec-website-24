@@ -10,7 +10,8 @@ import { FaPlay } from "react-icons/fa6";
 import Stepper from "./Stepper";
 import TextArea from "./TextArea";
 import SelectInput from "./SelectInput";
-import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const yearOfStudy = ["L1/1CP", "L2/2CP", "L3/1CS", "M1/2CS", "M2/3CS"];
 const schema01 = yup
   .object({
@@ -95,7 +96,7 @@ const Form = () => {
 
     try {
       const response = await fetch(
-        "https://sec-website-24-backend-reg.onrender.com/submit-form",
+        "https://sec-website-24-backend.onrender.com/submit-form",
         {
           method: "POST",
           headers: {
@@ -104,13 +105,22 @@ const Form = () => {
           body: JSON.stringify(payload),
         }
       );
-
-      // Check if the request was successful
-      if (response.ok) {
+      console.log(response);
+      if (response.response.status === "success") {
         const result = await response.json();
         console.log("Form submitted successfully", result);
+        toast.success("Success message", {
+          position: "center-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
       } else {
         console.error("Error submitting form:", response.statusText);
+        toast.error("Error submitting the form!");
       }
     } catch (error) {
       console.error("Error submitting form:", error);
@@ -120,10 +130,12 @@ const Form = () => {
   useEffect(() => {
     console.log("step:", step);
     console.log("is valid:", isValid);
-  }, [step, isValid]); // This will log step and isValid whenever they change
+  }, [step, isValid]);
   return (
-    <div className="h-[80vh] lg:h-[85vh] w-full px-5 lg:px-32 xl:px-48 flex gap-[40px] lg:gap-0 flex-col justify-center items-center">
+    <div className="relative h-[80vh] lg:h-[90vh] w-full px-5 lg:px-32 xl:px-48 flex gap-[40px] lg:gap-0 flex-col justify-center items-center">
       <Stepper activeStep={step} />
+      <ToastContainer />
+
       <form
         action=""
         className=" grid grid-cols-2 grid-rows-3 lg:gap-6 xl:gap-10 w-full">
@@ -238,7 +250,7 @@ const Form = () => {
           </>
         )}
       </form>
-      <div className="w-full flex flex-row-reverse justify-between ">
+      <div className="px-5 lg:px-32 xl:px-48 absolute bottom-[20px] lg:bottom-[40px] w-full flex flex-row-reverse justify-between ">
         {step === 0 && (
           <Button disable={!isValid} onClick={incrementStep}>
             <p className="lg:text-xl text-md text-white font-poppins font-semibold">
