@@ -9,6 +9,7 @@ import Button from "./Button";
 import { FaPlay } from "react-icons/fa6";
 import Stepper from "./Stepper";
 import TextArea from "./TextArea";
+import SelectInput from "./SelectInput";
 
 const yearOfStudy = ["L1/1CP", "L2/2CP", "L3/1CS", "M1/2CS", "M2/3CS"];
 const schema01 = yup
@@ -16,7 +17,7 @@ const schema01 = yup
     firstName: yup.string().required(),
     familyName: yup.string().required(),
     email: yup.string().email().required(),
-    phoneNum: yup
+    phoneNumber: yup
       .string()
       .matches(/^0[5-7][0-9]{8}$/, "Phone number must be valid")
       .required("Phone number is required"),
@@ -24,13 +25,6 @@ const schema01 = yup
   .required();
 
 const schema02 = yup.object({
-  discordId: yup
-    .string()
-    .matches(
-      /^.{2,32}#[0-9]{4}$/,
-      "Discord ID must be in the format 'username#1234'"
-    )
-    .required("Discord ID is required"),
   universityName: yup.string().required(),
   studyYear: yup.string().oneOf(yearOfStudy).required(),
   insuranceNumber: yup
@@ -44,7 +38,7 @@ const schema02 = yup.object({
 
 const schema03 = yup.object({
   motivation: yup.string().required(),
-  anythingAdded: yup.string(),
+  other: yup.string(),
 });
 
 const Form = () => {
@@ -72,27 +66,39 @@ const Form = () => {
       firstName: "",
       familyName: "",
       email: "",
-      phoneNum: "",
+      phoneNumber: "",
       discordId: "",
       universityName: "",
       studyYear: "",
       insuranceNumber: "",
       motivation: "",
-      anythingAdded: "",
+      other: "",
     },
   });
 
-  const onsubmit = (data) => {
-    console.log("data", data);
+  const onsubmit = async (data) => {
+    try {
+      const response = await axios.post(
+        "https://sec-website-24-backend-reg.onrender.com/submit-form",
+        data
+      );
+      if (response.status === 200) {
+        console.log("Form submitted successfully", response.data);
+      }
+    } catch (error) {
+      console.error("Error submitting form", error);
+    }
   };
   useEffect(() => {
     console.log("step:", step);
     console.log("is valid:", isValid);
   }, [step, isValid]); // This will log step and isValid whenever they change
   return (
-    <div className="  w-full px-48 space-y-10 flex flex-col justify-center items-center">
+    <div className="h-[80vh] lg:h-[85vh] w-full px-5 lg:px-32 xl:px-48 flex gap-[40px] lg:gap-0 flex-col justify-center items-center">
       <Stepper activeStep={step} />
-      <form action="" className=" grid grid-cols-2 grid-rows-3 gap-10 w-full">
+      <form
+        action=""
+        className=" grid grid-cols-2 grid-rows-3 lg:gap-6 xl:gap-10 w-full">
         {step === 0 && (
           <>
             <TextInput
@@ -101,7 +107,7 @@ const Form = () => {
               placeHolder={"Enter your first name"}
               label={"first name"}
               isReqiured={true}
-              className=" col-span-1 w-full"
+              className=" col-span-2 lg:col-span-1 w-full"
               type={"text"}
             />
             <TextInput
@@ -110,7 +116,7 @@ const Form = () => {
               placeHolder={"Enter your family name"}
               label={"Family Name"}
               isReqiured={true}
-              className=" col-span-1 w-full"
+              className=" col-span-2 lg:col-span-1 w-full"
               type={"text"}
             />
             <TextInput
@@ -124,7 +130,7 @@ const Form = () => {
             />
             <TextInput
               control={control}
-              name={"phoneNum"}
+              name={"phoneNumber"}
               placeHolder={"0782683513"}
               label={"Phone Number"}
               isReqiured={true}
@@ -150,17 +156,23 @@ const Form = () => {
               placeHolder={"Enter the name of your university"}
               label={"University Name"}
               isReqiured={true}
-              className=" col-span-1 w-full"
+              className="col-span-2 lg:col-span-1 w-full"
               type={"text"}
             />
-            <TextInput
+            <SelectInput
               control={control}
               name={"studyYear"}
-              placeHolder={"--Select--"}
+              placeHolder={"--Select Year--"}
               label={"Year of Study"}
               isReqiured={true}
-              className=" col-span-1 w-full"
-              type={"text"}
+              className=" col-span-2 lg:col-span-1 w-full text-sm"
+              options={[
+                { value: "L1/1CP", label: "L1/1CP" },
+                { value: "L2/2CP", label: "L2/2CP" },
+                { value: "L3/1CS", label: "L3/1CS" },
+                { value: "M1/2CS", label: "M1/2CS" },
+                { value: "M2/3CS", label: "M2/3CS" },
+              ]}
             />
             <TextInput
               control={control}
@@ -188,7 +200,7 @@ const Form = () => {
             />
             <TextInput
               control={control}
-              name={"anythingAdded"}
+              name={"other"}
               placeHolder={""}
               label={"Anything to add ?"}
               isReqiured={true}
@@ -198,26 +210,26 @@ const Form = () => {
           </>
         )}
       </form>
-      <div className=" w-full  flex flex-row-reverse justify-between">
+      <div className="w-full flex flex-row-reverse justify-between ">
         {step === 0 && (
           <Button disable={!isValid} onClick={incrementStep}>
-            <p className="text-2xl text-white font-poppins font-semibold">
+            <p className="lg:text-xl text-md text-white font-poppins font-semibold">
               Next
             </p>
-            <FaPlay className=" text-xl text-white" />
+            <FaPlay className="w-2 lg:w-5 text-xl text-white" />
           </Button>
         )}
         {step === 1 && (
           <>
             <Button disable={!isValid} onClick={incrementStep}>
-              <p className="text-2xl text-white font-poppins font-semibold">
+              <p className="lg:text-xl text-md text-white font-poppins font-semibold">
                 Next
               </p>
-              <FaPlay className=" text-xl text-white" />
+              <FaPlay className="w-2 lg:w-5 text-xl text-white" />
             </Button>
             <Button disable={false} onClick={decrementStep}>
-              <FaPlay className=" text-xl text-white rotate-180" />
-              <p className="text-2xl text-white font-poppins font-semibold">
+              <FaPlay className="w-2 lg:w-5 text-xl text-white rotate-180" />
+              <p className="lg:text-xl text-md text-white font-poppins font-semibold">
                 Back
               </p>
             </Button>
@@ -226,13 +238,13 @@ const Form = () => {
         {step === 2 && (
           <>
             <Button disable={!isValid} onClick={handleSubmit(onsubmit)}>
-              <p className="text-2xl text-white font-poppins font-semibold">
+              <p className="lg:text-xl text-md text-white font-poppins font-semibold">
                 Submit
               </p>
             </Button>
             <Button disable={false} onClick={decrementStep}>
-              <FaPlay className=" text-xl text-white rotate-180" />
-              <p className="text-2xl text-white font-poppins font-semibold">
+              <FaPlay className="w-2 lg:w-5 text-xl text-white rotate-180" />
+              <p className="lg:text-xl text-md text-white font-poppins font-semibold">
                 Back
               </p>
             </Button>
