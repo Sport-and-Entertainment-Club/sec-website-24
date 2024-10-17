@@ -3,6 +3,9 @@ import ScrolledImages from "./ScrolledImages";
 import Slider from "./Slider";
 import { images, images2 } from "../../constants/imagesScroller";
 const Hero = () => {
+  const handleJoinClick = () => {
+    window.open("/register", "_blank");
+  };
   return (
     <div
       id="Home"
@@ -27,8 +30,8 @@ const Hero = () => {
           </p>
           <div className="mt-6 md:mt-0 w-full flex justify-center md:justify-start">
             <button
-              disabled
-              className=" cursor-not-allowed opacity-50 font-montserrat text-white font-medium px-[29px] py-[7px] md:py-2 md:px-10 bg-blue-400 rounded-xl text-base lg:text-xl">
+              onClick={handleJoinClick}
+              className=" font-montserrat text-white font-medium px-[29px] py-[7px] md:py-2 md:px-10 bg-blue-400 rounded-xl text-base lg:text-xl">
               Join us
             </button>
           </div>

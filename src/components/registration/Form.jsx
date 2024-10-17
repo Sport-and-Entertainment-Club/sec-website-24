@@ -10,7 +10,7 @@ import { FaPlay } from "react-icons/fa6";
 import Stepper from "./Stepper";
 import TextArea from "./TextArea";
 import SelectInput from "./SelectInput";
-
+import axios from "axios";
 const yearOfStudy = ["L1/1CP", "L2/2CP", "L3/1CS", "M1/2CS", "M2/3CS"];
 const schema01 = yup
   .object({
@@ -77,18 +77,46 @@ const Form = () => {
   });
 
   const onsubmit = async (data) => {
+    // Manually constructing the JSON payload
+    const payload = {
+      firstName: data.firstName,
+      familyName: data.familyName,
+      email: data.email,
+      phoneNumber: data.phoneNumber,
+      discordId: data.discordId,
+      universityName: data.universityName,
+      studyYear: data.studyYear,
+      insuranceNumber: data.insuranceNumber,
+      motivation: data.motivation,
+      other: data.other,
+    };
+
+    console.log("Payload to be sent:", payload);
+
     try {
-      const response = await axios.post(
+      const response = await fetch(
         "https://sec-website-24-backend-reg.onrender.com/submit-form",
-        data
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(payload),
+        }
       );
-      if (response.status === 200) {
-        console.log("Form submitted successfully", response.data);
+
+      // Check if the request was successful
+      if (response.ok) {
+        const result = await response.json();
+        console.log("Form submitted successfully", result);
+      } else {
+        console.error("Error submitting form:", response.statusText);
       }
     } catch (error) {
-      console.error("Error submitting form", error);
+      console.error("Error submitting form:", error);
     }
   };
+
   useEffect(() => {
     console.log("step:", step);
     console.log("is valid:", isValid);

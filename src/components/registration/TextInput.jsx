@@ -24,7 +24,7 @@ const TextInput = ({
           type={type}
           placeholder={placeHolder}
           {...field}
-          className=" outline-none bg-black placeholder:text-neutral-400 lg:placeholder:text-sm lg:text-sm text-[14px] placeholder:text-[14px]  px-5 py-4 rounded-2xl w-full "
+          className=" outline-none bg-white placeholder:text-neutral-400 lg:placeholder:text-sm lg:text-sm text-[14px] placeholder:text-[14px]  px-5 py-4 rounded-2xl w-full "
         />
         {fieldState?.error ? (
           <p className="h-[15px] text-red-500 font-semibold text-[12px] ">
