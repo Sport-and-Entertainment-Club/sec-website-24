@@ -3,16 +3,16 @@ import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { DevTool } from "@hookform/devtools";
 import TextInput from "./TextInput";
 import Button from "./Button";
 import { FaPlay } from "react-icons/fa6";
 import Stepper from "./Stepper";
 import TextArea from "./TextArea";
 import SelectInput from "./SelectInput";
+import { ToastContainer, toast } from "react-toastify";
 import Swal from "sweetalert2";
-import useKeyboardVisibility from "../../utils/useKeyboardVisibility";
-import { motion } from "framer-motion";
-
+import "react-toastify/dist/ReactToastify.css";
 const yearOfStudy = ["L1/1CP", "L2/2CP", "L3/1CS", "M1/2CS", "M2/3CS"];
 const schema01 = yup
   .object({
@@ -63,7 +63,6 @@ const Form = () => {
   useEffect(() => {
     setCurrentSchema(schemas[step]);
   }, [step]);
-  const keyboardVisible = useKeyboardVisibility();
 
   const {
     handleSubmit,
@@ -160,24 +159,16 @@ const Form = () => {
   }, [step, isValid]);
   return (
     <div className="px-5 lg:px-32 xl:px-48 relative h-[100vh] lg:h-[90vh] w-full grid grid-rows-[7vh,9vh,70vh,10vh] lg:flex lg:flex-col gap-[0px] lg:gap-[30px]  justify-center items-center xl:max-w-[1300px]">
-      {!keyboardVisible && (
-        <>
-          <motion.h1
-            initial={{ opacity: 1, y: 0 }}
-            animate={{
-              opacity: keyboardVisible ? 0 : 1,
-              y: keyboardVisible ? -50 : 0,
-            }}
-            transition={{ duration: 0.3 }}
-            className="lg:h-[10vh] font-montserrat font-bold text-purple text-title-mobile lg:text-[48px] xl:text-title-desktop text-center transition-all duration-500">
-            Join us
-          </motion.h1>
-          <Stepper activeStep={step} className="transition-all duration-500" />
-        </>
-      )}
+      <>
+        <h1 className="lg:h-[10vh] font-montserrat font-bold text-purple text-title-mobile lg:text-[48px] xl:text-title-desktop text-center transition-all duration-500">
+          Join us
+        </h1>
+        <Stepper activeStep={step} className="transition-all duration-500" />
+      </>
+
       <form
         action=""
-        className="lg:h-[64vh] gap-4 grid grid-cols-2 grid-rows-3 lg:gap-2 xl:gap-6 w-full">
+        className="lg:h-[64vh] gap-3 grid grid-cols-2 grid-rows-3 lg:gap-2 xl:gap-6 w-full">
         {step === 0 && (
           <>
             <TextInput

@@ -24,14 +24,14 @@ const TextInput = ({
           type={type}
           placeholder={placeHolder}
           {...field}
-          className=" outline-none bg-white placeholder:text-neutral-400 lg:placeholder:text-sm lg:text-sm text-[14px] placeholder:text-[14px]  px-5 py-4 rounded-2xl w-full "
+          className=" outline-none bg-white placeholder:text-neutral-400 lg:placeholder:text-sm lg:text-sm text-[14px] placeholder:text-[14px] py-3 px-4 md:px-5 md:py-4 rounded-2xl w-full "
         />
         {fieldState?.error ? (
-          <p className="h-[15px] text-red-500 font-semibold text-[12px] ">
+          <p className="h-[10px] text-[8px] md:h-[15px] text-red-500 font-semibold md:text-[12px] ">
             {fieldState.error?.message}
           </p>
         ) : (
-          <p className="h-[15px]"></p>
+          <p className="h-[10px] text-[8px] md:h-[15px] text-red-500 font-semibold md:text-[12px] "></p>
         )}
       </div>
     </div>
