@@ -154,15 +154,15 @@ const Form = () => {
     console.log("is valid:", isValid);
   }, [step, isValid]);
   return (
-    <div className="relative h-[90vh] lg:h-[90vh] w-full grid grid-rows-[7vh,5vh,60vh,18vh] lg:grid-rows-[10vh,8vh,64vh,6vh] gap-[40px] lg:gap-0  justify-center items-center">
-      <h1 className=" font-montserrat font-bold text-purple text-title-mobile lg:text-[48px] xl:text-title-desktop text-center ">
+    <div className="px-5 lg:px-32 xl:px-48 relative h-[100vh] lg:h-[90vh] w-full grid grid-rows-[7vh,9vh,70vh,10vh] lg:flex lg:flex-col gap-[0px] lg:gap-[30px]  justify-center items-center xl:max-w-[1300px]">
+      <h1 className="lg:h-[10vh] font-montserrat font-bold text-purple text-title-mobile lg:text-[48px] xl:text-title-desktop text-center ">
         Join us
       </h1>
       <Stepper activeStep={step} />
 
       <form
         action=""
-        className="gap-4 grid grid-cols-2 grid-rows-3 lg:gap-2 xl:gap-6 w-full">
+        className="lg:h-[64vh] gap-4 grid grid-cols-2 grid-rows-3 lg:gap-2 xl:gap-6 w-full">
         {step === 0 && (
           <>
             <TextInput
@@ -274,7 +274,7 @@ const Form = () => {
           </>
         )}
       </form>
-      <div className="p w-full flex flex-row-reverse justify-between ">
+      <div className="lg:h-[6vh] p w-full flex flex-row-reverse justify-between ">
         {step === 0 && (
           <Button disable={!isValid} onClick={incrementStep}>
             <p className="lg:text-lg text-sm text-white font-poppins font-semibold">
