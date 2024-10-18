@@ -2,6 +2,7 @@ import ContactUs from "./ContactUs";
 import ScrolledImages from "./ScrolledImages";
 import Slider from "./Slider";
 import { images, images2 } from "../../constants/imagesScroller";
+import { Link } from "react-router-dom";
 const Hero = () => {
   const handleJoinClick = () => {
     window.open("/register", "_blank");
@@ -32,7 +33,7 @@ const Hero = () => {
             <button
               onClick={handleJoinClick}
               className=" font-montserrat text-white font-medium px-[29px] py-[7px] md:py-2 md:px-10 bg-blue-400 rounded-xl text-base lg:text-xl">
-              Join us
+              <Link> Join us</Link>
             </button>
           </div>
         </div>
