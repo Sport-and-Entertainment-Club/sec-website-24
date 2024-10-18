@@ -11,6 +11,8 @@ import TextArea from "./TextArea";
 import SelectInput from "./SelectInput";
 import Swal from "sweetalert2";
 import useKeyboardVisibility from "../../utils/useKeyboardVisibility";
+import { motion } from "framer-motion";
+
 const yearOfStudy = ["L1/1CP", "L2/2CP", "L3/1CS", "M1/2CS", "M2/3CS"];
 const schema01 = yup
   .object({
@@ -160,9 +162,16 @@ const Form = () => {
     <div className="px-5 lg:px-32 xl:px-48 relative h-[100vh] lg:h-[90vh] w-full grid grid-rows-[7vh,9vh,70vh,10vh] lg:flex lg:flex-col gap-[0px] lg:gap-[30px]  justify-center items-center xl:max-w-[1300px]">
       {!keyboardVisible && (
         <>
-          <h1 className="lg:h-[10vh] font-montserrat font-bold text-purple text-title-mobile lg:text-[48px] xl:text-title-desktop text-center transition-all duration-500">
+          <motion.h1
+            initial={{ opacity: 1, y: 0 }}
+            animate={{
+              opacity: keyboardVisible ? 0 : 1,
+              y: keyboardVisible ? -50 : 0,
+            }}
+            transition={{ duration: 0.3 }}
+            className="lg:h-[10vh] font-montserrat font-bold text-purple text-title-mobile lg:text-[48px] xl:text-title-desktop text-center transition-all duration-500">
             Join us
-          </h1>
+          </motion.h1>
           <Stepper activeStep={step} className="transition-all duration-500" />
         </>
       )}

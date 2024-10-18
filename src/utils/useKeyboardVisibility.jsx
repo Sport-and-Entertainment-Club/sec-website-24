@@ -4,19 +4,21 @@ const useKeyboardVisibility = () => {
   const [keyboardVisible, setKeyboardVisible] = useState(false);
 
   useEffect(() => {
-    let initialHeight = window.innerHeight;
+    const handleFocus = () => setKeyboardVisible(true);
+    const handleBlur = () => setKeyboardVisible(false);
 
-    const handleResize = () => {
-      if (window.innerHeight < initialHeight) {
-        setKeyboardVisible(true);
-      } else {
-        setKeyboardVisible(false);
-      }
+    const inputs = document.querySelectorAll("input, textarea");
+    inputs.forEach((input) => {
+      input.addEventListener("focus", handleFocus);
+      input.addEventListener("blur", handleBlur);
+    });
+
+    return () => {
+      inputs.forEach((input) => {
+        input.removeEventListener("focus", handleFocus);
+        input.removeEventListener("blur", handleBlur);
+      });
     };
-
-    window.addEventListener("resize", handleResize);
-
-    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return keyboardVisible;
