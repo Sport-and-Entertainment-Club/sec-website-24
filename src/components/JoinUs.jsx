@@ -1,5 +1,5 @@
 import img from "../../public/assets/images/sec.png";
-import { Link } from "react-router-dom"; // Import Link from react-router-dom
+import { Link } from "react-router-dom";
 
 const JoinUs = () => {
   const handleJoinClick = () => {
