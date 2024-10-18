@@ -74,7 +74,7 @@ const Form = () => {
       phoneNumber: "",
       discordId: "",
       universityName: "",
-      studyYear: "",
+      studyYear: "L1/1CP",
       insuranceNumber: "",
       motivation: "",
       other: "",
