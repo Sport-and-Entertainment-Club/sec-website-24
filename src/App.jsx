@@ -8,7 +8,7 @@ import AboutUsPage from "./sections/AboutUs";
 import Hero from "./components/heroSection";
 import OurActivities from "./sections/OurActivities";
 import OurTeam from "./sections/OurTeam";
-import Registration from "./components/registration/Registration"; // Import registration page
+import Registration from "./components/Registration"; // Import registration page
 
 function App() {
   return (
