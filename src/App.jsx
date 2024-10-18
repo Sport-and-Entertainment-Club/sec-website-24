@@ -14,28 +14,25 @@ function App() {
   return (
     <Router>
       <Routes>
-        <div className="z-0 relative text-title bg-white md:bg-bg-white text-title-desktop flex flex-col mx-auto md:min-h-screen xl:w-auto font-poppins">
-          {/* Home Page (Website Sections) */}
-          <Route
-            path="/"
-            element={
-              <>
-                <Navbar />
-                <Hero />
-                <AboutUsPage />
-                <Goals />
-                <OurTeam />
-                <Events />
-                <OurActivities />
-                <GetInTouch />
-                <Footer />
-              </>
-            }
-          />
+        <Route
+          path="/"
+          element={
+            <div className="z-0 relative text-title bg-white md:bg-bg-white text-title-desktop flex flex-col mx-auto md:min-h-screen xl:w-auto font-poppins">
+              <Navbar />
+              <Hero />
+              <AboutUsPage />
+              <Goals />
+              <OurTeam />
+              <Events />
+              <OurActivities />
+              <GetInTouch />
+              <Footer />
+            </div>
+          }
+        />
 
-          {/* Registration Page */}
-          <Route path="/register" element={<Registration />} />
-        </div>
+        {/* Registration Page */}
+        <Route path="/register" element={<Registration />} />
       </Routes>
     </Router>
   );
