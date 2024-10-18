@@ -2,10 +2,7 @@ import Form from "./Form";
 
 const Registration = () => {
   return (
-    <div className="bg-bg-white flex flex-col justify-center items-center text-base w-screen h-screen">
-      <h1 className=" font-montserrat font-bold text-purple text-title-mobile lg:text-title-desktop ">
-        Join us
-      </h1>
+    <div className="bg-bg-white px-5 lg:px-32 xl:px-48 flex flex-col md:justify-center items-center text-base w-screen h-screen">
       <Form />
     </div>
   );

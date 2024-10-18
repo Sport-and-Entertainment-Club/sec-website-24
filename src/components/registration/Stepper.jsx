@@ -2,7 +2,7 @@
 import Step from "./Step";
 const Stepper = ({ activeStep }) => {
   return (
-    <div className="absolute top-[40px] lg:top-[50px] mx-auto flex flex-row">
+    <div className="mx-auto flex flex-row">
       {[0, 1, 2].map((item, index) => {
         return (
           <Step
