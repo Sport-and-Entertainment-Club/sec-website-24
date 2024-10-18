@@ -13,27 +13,29 @@ import Registration from "./components/registration/Registration";
 function App() {
   return (
     <Router>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <div className="z-0 relative text-title bg-white md:bg-bg-white text-title-desktop flex flex-col mx-auto md:min-h-screen xl:w-auto font-poppins">
-              <Navbar />
-              <Hero />
-              <AboutUsPage />
-              <Goals />
-              <OurTeam />
-              <Events />
-              <OurActivities />
-              <GetInTouch />
-              <Footer />
-            </div>
-          }
-        />
+      <div className="z-0 relative text-title bg-white md:bg-bg-white text-title-desktop flex flex-col mx-auto md:min-h-screen xl:w-auto font-poppins">
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <Navbar />
+                <Hero />
+                <AboutUsPage />
+                <Goals />
+                <OurTeam />
+                <Events />
+                <OurActivities />
+                <GetInTouch />
+                <Footer />
+              </>
+            }
+          />
 
-        {/* Registration Page */}
-        <Route path="/register" element={<Registration />} />
-      </Routes>
+          {/* Registration Page */}
+          <Route path="/register" element={<Registration />} />
+        </Routes>
+      </div>
     </Router>
   );
 }
