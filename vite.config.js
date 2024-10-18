@@ -5,6 +5,7 @@ export default defineConfig({
   plugins: [react()],
   build: {
     rollupOptions: {
+      external: ["react", "react-router", "react-router-dom"],
       output: {
         // You can optimize chunking if necessary
         manualChunks: undefined,
