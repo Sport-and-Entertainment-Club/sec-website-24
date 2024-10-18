@@ -30,7 +30,8 @@ const schema01 = yup
   .required();
 
 const schema02 = yup.object({
-  universityName: yup.string().required("University Name is a required field"), // Custom message for universityName
+  universityName: yup.string().required("University Name is a required field"),
+  discordId: yup.string().required("Discord username is a required field"),
   studyYear: yup
     .string()
     .oneOf(yearOfStudy, "Study Year must be a valid selection")
