@@ -23,6 +23,7 @@
     "react-toastify": "^10.0.6",
     "react-use-measure": "^2.1.1",
     "slick-carousel": "^1.8.1",
+    "sweetalert2": "^11.14.3",
     "swiper": "^11.1.14",
     "yup": "^1.4.0"
   },

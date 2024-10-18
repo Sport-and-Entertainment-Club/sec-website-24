@@ -11,6 +11,7 @@ import Stepper from "./Stepper";
 import TextArea from "./TextArea";
 import SelectInput from "./SelectInput";
 import { ToastContainer, toast } from "react-toastify";
+import Swal from "sweetalert2";
 import "react-toastify/dist/ReactToastify.css";
 const yearOfStudy = ["L1/1CP", "L2/2CP", "L3/1CS", "M1/2CS", "M2/3CS"];
 const schema01 = yup
@@ -30,9 +31,12 @@ const schema02 = yup.object({
   studyYear: yup.string().oneOf(yearOfStudy).required(),
   insuranceNumber: yup
     .string()
-    .matches(
-      /^[0-9]{3}[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{3}$/,
-      "Insurance number must be a valid 13-digit number"
+    .test(
+      "insurance-or-na",
+      "Insurance number must be a valid 13-digit number or 'N/A'",
+      (value) =>
+        value === "N/A" ||
+        /^[0-9]{3}[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{3}$/.test(value)
     )
     .required("Insurance number is required"),
 });
@@ -86,7 +90,7 @@ const Form = () => {
       phoneNumber: data.phoneNumber,
       discordId: data.discordId,
       universityName: data.universityName,
-      studyYear: data.studyYear,
+      studyYear: data.studyYear, // Ensuring studyYear is properly sent as string
       insuranceNumber: data.insuranceNumber,
       motivation: data.motivation,
       other: data.other,
@@ -105,22 +109,40 @@ const Form = () => {
           body: JSON.stringify(payload),
         }
       );
-      console.log(response);
-      if (response.response.status === "success") {
+
+      // Checking if the status code is within the success range (200-299)
+      if (response.ok) {
         const result = await response.json();
         console.log("Form submitted successfully", result);
-        toast.success("Success message", {
-          position: "center-center",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
+        Swal.fire({
+          title: "🎉 Welcome Aboard!",
+          text: "Your inscription to SEC has been successfully added. Get ready for an awesome adventure with us!",
+          icon: "success",
+          confirmButtonText: "Let's Go!",
+          backdrop: true,
+          allowOutsideClick: false,
+          allowEscapeKey: false,
+        }).then(() => {
+          window.innerWidth < 1024
+            ? (window.location.href = "/")
+            : window.close();
         });
       } else {
-        console.error("Error submitting form:", response.statusText);
-        toast.error("Error submitting the form!");
+        const errorData = await response.json();
+        console.error("Error submitting form:", errorData);
+        Swal.fire({
+          title: "🎉 Welcome Aboard!",
+          text: "There was a problem sending your form. Please try again later.",
+          icon: "error",
+          confirmButtonText: "Close",
+          backdrop: true,
+          allowOutsideClick: false,
+          allowEscapeKey: false,
+        }).then(() => {
+          window.innerWidth < 1024
+            ? (window.location.href = "/")
+            : window.close();
+        });
       }
     } catch (error) {
       console.error("Error submitting form:", error);
@@ -138,7 +160,7 @@ const Form = () => {
 
       <form
         action=""
-        className=" grid grid-cols-2 grid-rows-3 lg:gap-6 xl:gap-10 w-full">
+        className="gap-4 grid grid-cols-2 grid-rows-3 lg:gap-2 xl:gap-10 w-full">
         {step === 0 && (
           <>
             <TextInput
@@ -162,7 +184,7 @@ const Form = () => {
             <TextInput
               control={control}
               name={"email"}
-              placeHolder={"exemple@gmail.com"}
+              placeHolder={"example@gmail.com"}
               label={"Email"}
               isReqiured={true}
               className=" col-span-2 w-full"
@@ -171,7 +193,7 @@ const Form = () => {
             <TextInput
               control={control}
               name={"phoneNumber"}
-              placeHolder={"0782683513"}
+              placeHolder={"0555555555"}
               label={"Phone Number"}
               isReqiured={true}
               className=" col-span-2 w-full"
@@ -184,7 +206,7 @@ const Form = () => {
             <TextInput
               control={control}
               name={"discordId"}
-              placeHolder={"Enter your discord ID"}
+              placeHolder={"Enter your discord username"}
               label={"Discord ID"}
               isReqiured={true}
               className=" col-span-2 w-full"
@@ -253,7 +275,7 @@ const Form = () => {
       <div className="px-5 lg:px-32 xl:px-48 absolute bottom-[20px] lg:bottom-[40px] w-full flex flex-row-reverse justify-between ">
         {step === 0 && (
           <Button disable={!isValid} onClick={incrementStep}>
-            <p className="lg:text-xl text-md text-white font-poppins font-semibold">
+            <p className="lg:text-lg text-sm text-white font-poppins font-semibold">
               Next
             </p>
             <FaPlay className="w-2 lg:w-5 text-xl text-white" />
@@ -262,14 +284,14 @@ const Form = () => {
         {step === 1 && (
           <>
             <Button disable={!isValid} onClick={incrementStep}>
-              <p className="lg:text-xl text-md text-white font-poppins font-semibold">
+              <p className="lg:text-lg text-sm text-white font-poppins font-semibold">
                 Next
               </p>
               <FaPlay className="w-2 lg:w-5 text-xl text-white" />
             </Button>
             <Button disable={false} onClick={decrementStep}>
               <FaPlay className="w-2 lg:w-5 text-xl text-white rotate-180" />
-              <p className="lg:text-xl text-md text-white font-poppins font-semibold">
+              <p className="lg:text-lg text-sm text-white font-poppins font-semibold">
                 Back
               </p>
             </Button>
@@ -278,13 +300,13 @@ const Form = () => {
         {step === 2 && (
           <>
             <Button disable={!isValid} onClick={handleSubmit(onsubmit)}>
-              <p className="lg:text-xl text-md text-white font-poppins font-semibold">
+              <p className="lg:text-lg text-sm text-white font-poppins font-semibold">
                 Submit
               </p>
             </Button>
             <Button disable={false} onClick={decrementStep}>
               <FaPlay className="w-2 lg:w-5 text-xl text-white rotate-180" />
-              <p className="lg:text-xl text-md text-white font-poppins font-semibold">
+              <p className="lg:text-lg text-sm text-white font-poppins font-semibold">
                 Back
               </p>
             </Button>
