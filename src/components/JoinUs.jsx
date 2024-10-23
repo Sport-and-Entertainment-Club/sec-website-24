@@ -1,9 +1,29 @@
 import img from "../../public/assets/images/sec.png";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const JoinUs = () => {
   const handleJoinClick = () => {
-    window.open("/#/register", "_blank");
+    Swal.fire({
+      title: "Oops! 🚫  Registrations are closed",
+
+      text: "You missed it this time, but don't worry, there's always next time!\n You're always welcome at SEC events, so next time make sure to be there!",
+      allowOutsideClick: false,
+      allowEscapeKey: false,
+      confirmButtonText: "I understand",
+      width: window.innerWidth > 1024 ? 540 : 400,
+      backdrop: `
+    rgba(0, 0, 0, 0.4)
+    left top
+    no-repeat
+  `,
+      didOpen: () => {
+        document.querySelector(".swal2-container").style.backdropFilter =
+          "blur(2px)";
+        document.querySelector(".swal2-container").style.backgroundColor =
+          "rgba(0, 0, 0, 0.4)";
+      },
+    });
   };
   return (
     <div

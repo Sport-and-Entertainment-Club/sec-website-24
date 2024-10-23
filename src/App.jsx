@@ -31,9 +31,6 @@ function App() {
               </>
             }
           />
-
-          {/* Registration Page */}
-          <Route path="/register" element={<Registration />} />
         </Routes>
       </div>
     </Router>

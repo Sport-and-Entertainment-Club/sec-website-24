@@ -42,3 +42,8 @@
 .transition-all {
   transition: all 0.5s ease-in-out;
 }
+
+.swal2-container {
+  backdrop-filter: blur(15px);
+  background: rgba(0, 0, 0, 0.5);
+}
